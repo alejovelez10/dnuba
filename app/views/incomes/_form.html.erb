@@ -25,7 +25,7 @@
 <%val1 = "" 
  action_name == "edit" ? val1 = @income.document_type : val1 = "" %>
     <%= form.label "Tipo de Ingreso" %>
-     <%= form.select 'type_income', options_for_select(["Factura", "Aporte Socio"], val1), {},{:class => 'form-control'}%>
+     <%= form.select 'type_income', options_for_select(["FACTURA", "INVERSION"], val1), {},{:class => 'form-control'}%>
   </div>
 
   <div class="field">

@@ -1,5 +1,5 @@
 class CostCentersController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user! , :except => [:show]
   before_action :set_cost_center, only: [:show, :edit, :update, :destroy]
 
   # GET /cost_centers

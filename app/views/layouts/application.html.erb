@@ -10,11 +10,11 @@
 
   <body>
   <%if user_signed_in? %>
-  <%= link_to "Centros de Costo", cost_centers_path, class: "menu btn btn-info" %>
-  <%= link_to "Tipos de Gasto", type_spends_path , class: "menu btn btn-info"%>
-  <%= link_to "Gastos Generales", general_spends_path , class: "menu btn btn-info"%>
-  <%= link_to "Ingresos", incomes_path , class: "menu btn btn-info"%>
-  <%= link_to "Cerrar Sesion", destroy_user_session_path, method: :destroy , class: "menu btn btn-danger"%>
+  <%= link_to "CENTROS DE COSTOS", cost_centers_path, class: "menu btn btn-info" %>
+  <%= link_to "TIPOS DE GASTOS", type_spends_path , class: "menu btn btn-info"%>
+  <%= link_to "GASTOS GENERALES", general_spends_path , class: "menu btn btn-info"%>
+  <%= link_to "INGRESOS", incomes_path , class: "menu btn btn-info"%>
+  <%= link_to "CERRAR SESION", destroy_user_session_path, method: :destroy , class: "menu btn btn-danger"%>
   <%else%>
 
   <%end%>
