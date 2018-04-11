@@ -24,7 +24,7 @@
         <td><%= income.type_income %></td>
         <td><%= number_to_currency(income.value).chomp(".00") %></td>
         <td><%= income.cost_center.name %></td>
-         <td><%= link_to "Descargar Soporte", income.file_url if income.file %></td>
+         <td><%= link_to "Descargar Soporte", income.file_url if income.file_url %></td>
         <td><%= link_to 'Ver', income %></td>
         <td><%= link_to 'Editar', edit_income_path(income) %></td>
         <td><%= link_to 'Eliminar', income, method: :delete, data: { confirm: 'Are you sure?' } %></td>
