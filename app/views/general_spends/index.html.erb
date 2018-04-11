@@ -23,10 +23,10 @@
         <td><%= general_spend.description %></td>
         <td><%= general_spend.type_spend.name %></td>
        
-        <td><%= number_to_currency(general_spend.value) %></td>
+        <td><%= number_to_currency(general_spend.value).chomp(".00") %></td>
          <td><%= general_spend.user.email %></td>
         <td><%= general_spend.cost_center.id %></td>
-        <td><%= link_to "Descargar Soporte", general_spend.file_url %></td>
+        <td><%= link_to "Descargar Soporte", general_spend.file_url if general_spend.file %></td>
         <td><%= link_to 'Ver', general_spend %></td>
         <td><%= link_to 'Editar', edit_general_spend_path(general_spend) %></td>
         <td><%= link_to 'Eliminar', general_spend, method: :delete, data: { confirm: 'Are you sure?' } %></td>
