@@ -22,7 +22,7 @@
         <td><%= income.income_date %></td>
         <td><%= income.description %></td>
         <td><%= income.type_income %></td>
-        <td><%= number_to_currency(income.value) %></td>
+        <td><%= number_to_currency(income.value).chomp(".00") %></td>
         <td><%= income.cost_center.name %></td>
          <td><%= link_to "Descargar Soporte", income.file_url %></td>
         <td><%= link_to 'Ver', income %></td>

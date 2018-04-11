@@ -1,29 +1,87 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @cost_center.name %>
-</p>
+<h2><strong>Nombre del Centro de Costo:</strong> <%= @cost_center.name %></h2>
 
-<p>
-  <strong>Code:</strong>
-  <%= @cost_center.code %>
-</p>
+<h2><strong>Codigo:</strong> <%= @cost_center.code %></h2>
 
-<p>
-  <strong>Customer:</strong>
-  <%= @cost_center.customer_id %>
-</p>
+<h2><strong>PyG:</strong> <%= number_to_currency(@cost_center.incomes.sum(:value) - @cost_center.general_spends.sum(:value)).chomp(".00")%>
+</h2>
 
-<p>
-  <strong>Budget:</strong>
-  <%= @cost_center.budget %>
-</p>
+  
+  <%= link_to 'Editar', edit_cost_center_path(@cost_center) %> |
+<%= link_to 'Regresar', cost_centers_path %>
 
-<p>
-  <strong>User:</strong>
-  <%= @cost_center.user_id %>
-</p>
 
-<%= link_to 'Edit', edit_cost_center_path(@cost_center) %> |
-<%= link_to 'Back', cost_centers_path %>
+
+<h2>Ingresos</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Fecha de Ingreso</th>
+      <th>Descripcion</th>
+      <th>Tipo de Ingreso</th>
+      <th>Valor</th>
+    
+      <th>Centro de Costo</th>
+      <th>Soporte</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cost_center.incomes.each do |income| %>
+      <tr>
+        <td><%= income.income_date %></td>
+        <td><%= income.description %></td>
+        <td><%= income.type_income %></td>
+        <td><%= number_to_currency(income.value).chomp(".00") %></td>
+        <td><%= income.cost_center.name %></td>
+         <td><%= link_to "Descargar Soporte", income.file_url %></td>
+        <td><%= link_to 'Ver', income %></td>
+        <td><%= link_to 'Editar', edit_income_path(income) %></td>
+        <td><%= link_to 'Eliminar', income, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h2>Total Ingresos: <%= number_to_currency(@cost_center.incomes.sum(:value)).chomp(".00") %> </h2>
+
+<hr>
+<h2>Gastos</h2>
+<table class="table">
+  <thead>
+    <tr>
+    <th>Fecha de Gasto</th>
+      <th>Descripcion</th>
+      <th>Tipo de Gasto</th>
+      <th>Valor</th>
+      <th>Responsable</th>
+      <th>Centro de Costo</th>
+      <th>Evidencia</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cost_center.general_spends.each do |general_spend| %>
+      <tr>
+      <td><%= general_spend.spend_date %></td>
+        <td><%= general_spend.description %></td>
+        <td><%= general_spend.type_spend.name %></td>
+       
+        <td><%= number_to_currency(general_spend.value).chomp(".00") %></td>
+         <td><%= general_spend.user.email %></td>
+        <td><%= general_spend.cost_center.id %></td>
+        <td><%= link_to "Descargar Soporte", general_spend.file_url %></td>
+        <td><%= link_to 'Ver', general_spend %></td>
+        <td><%= link_to 'Editar', edit_general_spend_path(general_spend) %></td>
+        <td><%= link_to 'Eliminar', general_spend, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<h2>Total Gastos: <%= number_to_currency(@cost_center.general_spends.sum(:value)).chomp(".00") %></h2>
+
+
+
