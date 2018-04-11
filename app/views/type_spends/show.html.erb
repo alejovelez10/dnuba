@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @type_spend.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @type_spend.description %>
+</p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @type_spend.code %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @type_spend.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_type_spend_path(@type_spend) %> |
+<%= link_to 'Back', type_spends_path %>

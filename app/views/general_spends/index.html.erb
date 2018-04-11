@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Gastos Generales</h1>
+<%= link_to 'Nuevo Gasto General', new_general_spend_path %>
+<table class="table">
+  <thead>
+    <tr>
+    <th>Fecha de Gasto</th>
+      <th>Descripcion</th>
+      <th>Tipo de Gasto</th>
+      <th>Valor</th>
+      <th>Responsable</th>
+      <th>Centro de Costo</th>
+      <th>Evidencia</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @general_spends.each do |general_spend| %>
+      <tr>
+      <td><%= general_spend.spend_date %></td>
+        <td><%= general_spend.description %></td>
+        <td><%= general_spend.type_spend.name %></td>
+       
+        <td><%= number_to_currency(general_spend.value) %></td>
+         <td><%= general_spend.user.email %></td>
+        <td><%= general_spend.cost_center.id %></td>
+        <td><%= link_to "Descargar Soporte", general_spend.file_url %></td>
+        <td><%= link_to 'Ver', general_spend %></td>
+        <td><%= link_to 'Editar', edit_general_spend_path(general_spend) %></td>
+        <td><%= link_to 'Eliminar', general_spend, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+

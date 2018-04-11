@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Ingresos</h1>
+<%= link_to 'Nuevo Ingreso', new_income_path %>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Fecha de Ingreso</th>
+      <th>Descripcion</th>
+      <th>Tipo de Ingreso</th>
+      <th>Valor</th>
+    
+      <th>Centro de Costo</th>
+      <th>Soporte</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @incomes.each do |income| %>
+      <tr>
+        <td><%= income.income_date %></td>
+        <td><%= income.description %></td>
+        <td><%= income.type_income %></td>
+        <td><%= number_to_currency(income.value) %></td>
+        <td><%= income.cost_center.name %></td>
+         <td><%= link_to "Descargar Soporte", income.file_url %></td>
+        <td><%= link_to 'Ver', income %></td>
+        <td><%= link_to 'Editar', edit_income_path(income) %></td>
+        <td><%= link_to 'Eliminar', income, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+

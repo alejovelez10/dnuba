@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dnuba</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <%= link_to "Centros de Costo", cost_centers_path, class: "menu btn btn-info" %>
+  <%= link_to "Tipos de Gasto", type_spends_path , class: "menu btn btn-info"%>
+  <%= link_to "Gastos Generales", general_spends_path , class: "menu btn btn-info"%>
+  <%= link_to "Ingresos", incomes_path , class: "menu btn btn-info"%>
+    <%= yield %>
+  </body>
+</html>
+

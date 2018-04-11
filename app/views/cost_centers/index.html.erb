@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Centros de Costo</h1>
+<%= link_to 'Crear Centro de Costo', new_cost_center_path %>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Codigo</th>
+
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cost_centers.each do |cost_center| %>
+      <tr>
+        <td><%= cost_center.name %></td>
+        <td><%= cost_center.code %></td>
+
+        <td><%= link_to 'Show', cost_center %></td>
+        <td><%= link_to 'Edit', edit_cost_center_path(cost_center) %></td>
+        <td><%= link_to 'Destroy', cost_center, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+

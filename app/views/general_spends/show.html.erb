@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @general_spend.description %>
+</p>
+
+<p>
+  <strong>Type spend:</strong>
+  <%= @general_spend.type_spend_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @general_spend.user_id %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @general_spend.value %>
+</p>
+
+<p>
+  <strong>Spend date:</strong>
+  <%= @general_spend.spend_date %>
+</p>
+
+<p>
+  <strong>Cost center:</strong>
+  <%= @general_spend.cost_center_id %>
+</p>
+
+<p>
+  <strong>File:</strong>
+  <%= @general_spend.file %>
+</p>
+
+<%= link_to 'Edit', edit_general_spend_path(@general_spend) %> |
+<%= link_to 'Back', general_spends_path %>

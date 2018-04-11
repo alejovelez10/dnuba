@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Tipos de gastos</h1>
+<%= link_to 'Crear tipo de gasto', new_type_spend_path %>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Descripcion</th>
+      <th>Codigo</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @type_spends.each do |type_spend| %>
+      <tr>
+        <td><%= type_spend.name %></td>
+        <td><%= type_spend.description %></td>
+        <td><%= type_spend.code %></td>
+
+        <td><%= link_to 'Show', type_spend %></td>
+        <td><%= link_to 'Edit', edit_type_spend_path(type_spend) %></td>
+        <td><%= link_to 'Destroy', type_spend, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+

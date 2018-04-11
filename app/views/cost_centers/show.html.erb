@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @cost_center.name %>
+</p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @cost_center.code %>
+</p>
+
+<p>
+  <strong>Customer:</strong>
+  <%= @cost_center.customer_id %>
+</p>
+
+<p>
+  <strong>Budget:</strong>
+  <%= @cost_center.budget %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @cost_center.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_cost_center_path(@cost_center) %> |
+<%= link_to 'Back', cost_centers_path %>

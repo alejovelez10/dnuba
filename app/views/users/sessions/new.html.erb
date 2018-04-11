@@ -1,0 +1,33 @@
+
+
+
+<div class="container">   
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+              <h2 class="text-center">Iniciar Sesion</h2>
+              <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                <div class="field">
+                  <%= f.label :email %><br />
+                  <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form form-control" %>
+                </div>
+
+                <div class="field">
+                  <%= f.label :password %><br />
+                  <%= f.password_field :password, autocomplete: "off" , class: "form form-control" %>
+                </div>
+
+                <br>
+                <div class="actions">
+                  <%= f.submit "Ingresar", class: "btn btn-primary btn-block" %>
+                </div>
+            <% end %>
+
+
+        <%= render "users/shared/links" %>
+
+        </div>
+      
+    </div>
+  
+</div>
+

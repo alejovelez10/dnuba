@@ -1,0 +1,36 @@
+
+                  <%= form_with(model: cost_center, local: true) do |form| %>
+                    <% if cost_center.errors.any? %>
+                      <div id="error_explanation">
+                        <h2><%= pluralize(cost_center.errors.count, "error") %> prohibited this cost_center from being saved:</h2>
+
+                        <ul>
+                        <% cost_center.errors.full_messages.each do |message| %>
+                          <li><%= message %></li>
+                        <% end %>
+                        </ul>
+                      </div>
+                    <% end %>
+
+                    <div class="field">
+                      <%= form.label "Nombre" %>
+                      <%= form.text_field :name, id: :cost_center_name, class: "form form-control" %>
+                    </div>
+
+                    <div class="field">
+                      <%= form.label "Codigo" %>
+                      <%= form.text_field :code, id: :cost_center_code , class: "form form-control"%>
+                    </div>
+
+
+                  <!--  <div class="field">
+                      <%= form.label "Presupuesto" %>
+                      <%= form.number_field :budget, id: :cost_center_budget , class: "form form-control"%>
+                    </div>-->
+
+                  <%=form.hidden_field :user_id, :value => current_user.id%>
+                    <br>
+                    <div class="actions">
+                      <%= form.submit "Guardar" , class: "btn btn-primary btn-block" %>
+                    </div>
+                  <% end %>
