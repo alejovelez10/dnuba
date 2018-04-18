@@ -1,8 +1,18 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Ingresos</h1>
-<%= link_to 'Nuevo Ingreso', new_income_path %>
-<table class="table">
+
+<div class="row title">
+  <div class="col-md-8">
+      <h2 >INGRESOS</h2>
+  </div>
+  <div class="col-md-4">
+      <%= link_to 'Crear', new_income_path, class: "btn btn-primary" %>
+  </div>
+  
+</div>
+
+
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Fecha de Ingreso</th>

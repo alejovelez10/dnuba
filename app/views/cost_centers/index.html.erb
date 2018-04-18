@@ -1,8 +1,18 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Centros de Costo</h1>
-<%= link_to 'Crear Centro de Costo', new_cost_center_path %>
-<table class="table">
+
+
+<div class="row title">
+  <div class="col-md-8">
+      <h2 >CENTROS DE COSTOS</h2>
+  </div>
+  <div class="col-md-4">
+      <%= link_to 'Crear', new_cost_center_path, class: "btn btn-primary" %>
+  </div>
+  
+</div>
+
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Nombre</th>
@@ -24,9 +34,9 @@
         <td><%= number_to_currency(cost_center.general_spends.sum(:value)).chomp(".00") %></td>
         <td><%= number_to_currency(cost_center.incomes.sum(:value) - cost_center.general_spends.sum(:value)).chomp(".00") %></td>
 
-        <td><%= link_to 'Show', cost_center %></td>
-        <td><%= link_to 'Edit', edit_cost_center_path(cost_center) %></td>
-        <td><%= link_to 'Destroy', cost_center, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Ver', cost_center %></td>
+        <td><%= link_to 'Editar', edit_cost_center_path(cost_center) %></td>
+        <td><%= link_to 'Eliminar', cost_center, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

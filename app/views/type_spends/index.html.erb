@@ -1,8 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Tipos de gastos</h1>
-<%= link_to 'Crear tipo de gasto', new_type_spend_path %>
-<table class="table">
+<div class="row title">
+  <div class="col-md-8">
+      <h2 >TIPOS DE GASTOS</h2>
+  </div>
+  <div class="col-md-4">
+      <%= link_to 'Crear tipo de gasto', new_type_spend_path, class: "btn btn-primary" %>
+  </div>
+  
+</div>
+
+
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Nombre</th>
@@ -19,9 +28,9 @@
         <td><%= type_spend.description %></td>
         <td><%= type_spend.code %></td>
 
-        <td><%= link_to 'Show', type_spend %></td>
-        <td><%= link_to 'Edit', edit_type_spend_path(type_spend) %></td>
-        <td><%= link_to 'Destroy', type_spend, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Ver', type_spend %></td>
+        <td><%= link_to 'Editar', edit_type_spend_path(type_spend) %></td>
+        <td><%= link_to 'Eliminar', type_spend, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
