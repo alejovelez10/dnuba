@@ -15,7 +15,7 @@
   <div class="panel-body">
     <div class="row">
         <div class="col-md-8">
-            <h2 style="    color: #858585;"><strong>Centro de Costo:</strong> <%= @cost_center.name %><strong style="margin-left: 20px;">Codigo:</strong> <%= @cost_center.code %></h2> 
+            <h2 style="    color: #858585;"><strong>Centro de Costo:</strong> <%= @cost_center.name %><br><strong style="">Codigo:</strong> <%= @cost_center.code %></h2> 
         </div>
         <div class="col-md-4">
             <div class="alert alert-success" role="alert">
@@ -66,7 +66,7 @@
 </table>
 <div class="row">
     <div class="col-md-12 text-right">
-        <h2 >Total Ingresos: <%= number_to_currency(@cost_center.incomes.sum(:value)).chomp(".00") %> </h2>
+        <h2 style="color: #959595;">Total Ingresos: <%= number_to_currency(@cost_center.incomes.sum(:value)).chomp(".00") %> </h2>
     </div>
 </div>    
 <hr>
@@ -106,7 +106,7 @@
 </table>
 <div class="row">
     <div class="col-md-12 text-right">
-<h2>Total Gastos: <%= number_to_currency(@cost_center.general_spends.sum(:value)).chomp(".00") %></h2>
+<h2 style="color: #959595;">Total Gastos: <%= number_to_currency(@cost_center.general_spends.sum(:value)).chomp(".00") %></h2>
 
     </div>
 </div>   
