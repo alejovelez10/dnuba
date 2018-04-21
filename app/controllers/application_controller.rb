@@ -13,6 +13,10 @@ protected
             else
             	'admin'
         end
+    elsif controller_name == 'home'
+        
+        'page'
+
     	else
       'admin'
     end
