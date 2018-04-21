@@ -967,7 +967,7 @@ a.btn-service {
 /* -- Our Skill -- */
 
 #our-skill {
-	background: rgba(0, 0, 0, 0) url("../images/skill/skill-bg.jpg") repeat scroll 0 0 / cover;
+	background: rgba(0, 0, 0, 0) url("http://themehappy.com/html/palki/Palki/assets/images/skill/skill-bg.jpg") repeat scroll 0 0 / cover;
 	position: relative;
 	color: #ffffff;
 	background-attachment: fixed;
@@ -1141,7 +1141,7 @@ ul.portfolio li.active {
 
 .complete-project-conuter {
 	background-attachment: fixed;
-	background-image: url("../images/counter/counter-bg.jpg");
+	background-image: url("http://themehappy.com/html/palki/Palki/assets/images/counter/counter-bg.jpg");
 	background-size: cover;
 	padding: 120px 0;
 	position: relative;
@@ -1314,7 +1314,7 @@ a.team-link i {
 /* -- testimonial -- */
 
 #testimonial {
-	background: rgba(0, 0, 0, 0) url("../images/testimonial/testimonial-bg.jpg") repeat scroll 0 0 / cover;
+	background: rgba(0, 0, 0, 0) url("http://themehappy.com/html/palki/Palki/assets/images/testimonial/testimonial-bg.jpg") repeat scroll 0 0 / cover;
 	position: relative;
 	color: #ffffff;
 	background-attachment: fixed;
