@@ -51,7 +51,7 @@
         <td><%= income.type_income %></td>
         <td><%= number_to_currency(income.value).chomp(".00") %></td>
      
-         <td><%= link_to "Descargar Soporte", income.file_url if income.file %></td>
+         <td><%= link_to "Descargar Soporte", income.file_url if income.file_url %></td>
      
       </tr>
     <% end %>
@@ -91,7 +91,7 @@
         <td><%= number_to_currency(general_spend.value).chomp(".00") %></td>
       
 
-        <td><%= link_to "Descargar Soporte", general_spend.file_url if general_spend.file%></td>
+        <td><%= link_to "Descargar Soporte", general_spend.file_url if general_spend.file_url%></td>
       
       </tr>
     <% end %>
