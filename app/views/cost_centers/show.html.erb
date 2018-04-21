@@ -1,11 +1,4 @@
-<div class="row">
-    <div class="col-md-12 text-right">
-            <%= link_to 'Editar', edit_cost_center_path(@cost_center) %> |
-            <%= link_to 'Regresar', cost_centers_path %>
-
-    </div>
-    
-  </div>  
+ 
 
 
 
@@ -44,7 +37,7 @@
       <th>Tipo de Ingreso</th>
       <th>Valor</th>
     
-      <th>Centro de Costo</th>
+
       <th>Soporte</th>
 
     </tr>
@@ -57,7 +50,7 @@
         <td><%= income.description %></td>
         <td><%= income.type_income %></td>
         <td><%= number_to_currency(income.value).chomp(".00") %></td>
-        <td><%= income.cost_center.name %></td>
+     
          <td><%= link_to "Descargar Soporte", income.file_url %></td>
      
       </tr>
@@ -81,8 +74,8 @@
       <th>Descripcion</th>
       <th>Tipo de Gasto</th>
       <th>Valor</th>
-      <th>Responsable</th>
-      <th>Centro de Costo</th>
+ 
+   
       <th>Evidencia</th>
      
     </tr>
@@ -96,8 +89,8 @@
         <td><%= general_spend.type_spend.name %></td>
        
         <td><%= number_to_currency(general_spend.value).chomp(".00") %></td>
-         <td><%= general_spend.user.email %></td>
-        <td><%= general_spend.cost_center.id %></td>
+      
+
         <td><%= link_to "Descargar Soporte", general_spend.file_url %></td>
       
       </tr>
