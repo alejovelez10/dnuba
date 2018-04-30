@@ -118,3 +118,12 @@ a.btn.btn-normal, a.btn.btn-color, a.btn.btn-normal-border, a.btn-service {
 
 }
 
+
+
+@media only screen and (min-height: 768px) { 
+
+    .table-cell
+    {
+      padding-top: 150px;
+    }
+}
