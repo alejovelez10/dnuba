@@ -2,7 +2,9 @@
 @media only screen and (min-width: 992px) and (max-width: 1200px) { 
 .navbar .nav > li {
   padding: 0 8px;
+
 }
+.ima
 }
 /* Tablet Layout: 768px. */
 @media only screen and (min-width: 768px) and (max-width: 991px) { 
@@ -32,6 +34,11 @@
     div#main-nav-collapse {
         background: #02a8f4;
     }	
+
+   .logo_dnuba
+   {
+    width: 260px !important;
+   } 
   nav.navbar.navbar-default.navbar-fixed-top {
       padding: 5px 0px;
   } 
@@ -126,6 +133,8 @@ a.btn.btn-normal, a.btn.btn-color, a.btn.btn-normal-border, a.btn-service {
     {
     
       padding-top: 150px;
+          
+
     }
 }
 
