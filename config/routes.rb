@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :cost_centers
   resources :type_spends
   devise_for :users
-  root 'home#inicio'
+  
+  root 'home#construccion'
+  get 'inicio', to:'home#inicio'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
