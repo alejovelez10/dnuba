@@ -41,7 +41,7 @@ gem 'jquery-ui-rails'
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 #Guardar en amazon
-gem 'fog', '~> 1.38'
+
 gem 'figaro'
 gem 'chartkick', '~> 2.2', '>= 2.2.3'
 #Frontend
