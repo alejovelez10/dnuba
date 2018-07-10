@@ -8,6 +8,11 @@ Rails.application.routes.draw do
   devise_for :users
   
   root 'home#construccion'
+  
   get 'inicio', to:'home#inicio'
+  get "contacts", to: "contacts#index"
+
+  post "create_contacts", to: "contacts#create", as: "create_contacts"
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
