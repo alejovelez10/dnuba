@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row title">
+  <div class="col-md-8">
+      <h2 >CONCTACTOS</h2>
+  </div>
+  <div class="col-md-4">
+      <%= link_to 'Crear tipo de gasto', new_type_spend_path, class: "btn btn-primary" %>
+  </div>
+  
+</div>
+
+
+ <table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Email</th>
+      <th>Subject</th>
+      <th>Mensage</th>
+    </tr>
+  </thead>
+<tbody>
+	<% @contact.each do |contact| %>
+	 	<tr>
+	        <td><%= contact.name%></td>
+	        <td><%= contact.email%></td>
+	        <td><%= contact.subject%></td>
+	        <td><%= contact.message%></td>
+	    </tr>
+	<% end -%>
+  </tbody>
+</table>
