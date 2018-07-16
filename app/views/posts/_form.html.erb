@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-md-offset-3">
+      <%= form_with(model: post, local: true) do |form| %>
+        <% if post.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+            <ul>
+            <% post.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="field">
+          <%= form.label :Titulo %>
+          <%= form.text_field :name, id: :post_name, class: "form form-control" %>
+        </div>
+        <br>
+        <div class="field">
+          <%= form.label :body %>
+          <%= form.text_area :body, id: :post_body, class: "text"%>
+        </div>
+        <br>
+         <%= form.label "Para la Categoria" %><br>
+         <%= form.select :category_id,Category.all.map { |u| [u.name, u.id] },{ include_blank: false },{ class: 'form form-control'  }%>
+        <br>
+
+        <%= form.hidden_field :user_id, :value => current_user.id%><br>
+
+        <div class="actions">
+          <%= form.submit "Guardar", class: "btn btn-primary" %>
+          <%= link_to 'Volver', posts_path, class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<style type="text/css">
+
+  .text{
+
+    resize: none;
+    height: 158px;
+    width: 100%;
+    border-spacing: all;
+    border-left: 6px solid #0404B4;
+  
+  }
+
+  .form{
+
+    border-left: 6px solid #0404B4;
+
+
+  }
+
+</style>
