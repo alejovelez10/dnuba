@@ -18,7 +18,11 @@
       <ul class="list-group">
         <h4><%= link_to post.name, post%></h4>
           <br>
-          <p><%= post.body %></p>
+          <div class="contenido">
+            
+          
+          <p "><%== post.body %></p>
+          </div>
           <br>
           <b>Escrito por:</b> <%= post.user.email if post.user%>
           <br>
@@ -26,7 +30,8 @@
           <br>
           <br> 
                   
-          <div>
+          <div class="row">
+          <div class="col-md-8">
               <%= link_to edit_post_path(post), class: "btn btn-info" do %>
               <span class="glyphicon glyphicon-eye-open"></span>
               <% end %>
@@ -34,17 +39,21 @@
               <%= link_to post, method: :delete, data: { confirm: 'Estas Seguro?' }, class: "btn btn-danger" do%>
               <span class="glyphicon glyphicon-trash"></span>
               <% end -%>
-              
-              <%= link_to cambios_path(post.id),remote: true, method: :post do %>   
+          </div>
+              <div class="col-md-4 text-right">
+                  <%= link_to cambios_path(post.id),remote: true, method: :post do %>   
               <% if post.estado == true %>
-                <span id="hola<%= post.id %>" class="glyphicon glyphicon-heart" style = "font-size:30px;"></span>
+                <span id="hola<%= post.id %>" class="glyphicon glyphicon-star" style = "font-size:30px;color:#eeee00"></span>
                
                 <% else%>
                
-                <span id="hola<%= post.id %>" class="glyphicon glyphicon-heart" style = "font-size:30px;color:black"></span>
+                <span id="hola<%= post.id %>" class="glyphicon glyphicon-star" style = "font-size:30px;color:gray"></span>
 
               <% end -%>
             <% end -%>
+              </div>
+              
+              
           </div>
       </ul>
     <% end %>
@@ -61,7 +70,11 @@
 <br>
 </div>
 <style>
-
+  .contenido
+  {
+    max-height: 105px;
+    overflow: hidden;
+  }
   .container-fluid{
 
     padding: 0px;
@@ -91,12 +104,12 @@
       border: 6px solid white;
       border-radius: 15px;
       background-color: white;
-      padding: 10px 10px;
+      padding: 10px 35px;
   }
 
   .glyphicon-heart{
     color: red;
-    background-color: red;
+   
   }
 
   body{

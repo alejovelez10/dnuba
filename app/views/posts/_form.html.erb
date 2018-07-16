@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-6 col-md-offset-3">
+    <div class="col-sm-10 col-md-offset-1">
       <%= form_with(model: post, local: true) do |form| %>
         <% if post.errors.any? %>
           <div id="error_explanation">
@@ -21,7 +21,7 @@
         <br>
         <div class="field">
           <%= form.label :body %>
-          <%= form.text_area :body, id: :post_body, class: "text"%>
+          <%= form.text_area :body, id: :post_body, class: "text ckeditor"%>
         </div>
         <br>
          <%= form.label "Para la Categoria" %><br>
@@ -44,7 +44,7 @@
   .text{
 
     resize: none;
-    height: 158px;
+    height: 200px !important;
     width: 100%;
     border-spacing: all;
     border-left: 6px solid #0404B4;

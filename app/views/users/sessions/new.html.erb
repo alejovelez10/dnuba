@@ -10,7 +10,7 @@
            <img width="300px" class="logo_dnuba" src="https://mybc1.s3.amazonaws.com/uploads/rseguimiento/evidencia/184/Logos%C3%ADmbolo_dnuba__2_-02.png" alt="">
              <br>
                <br>
-                 <br>
+                 
                   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
                     <div class="field">
                       <%= f.label :Email %><br />
@@ -24,7 +24,13 @@
 
                     <br>
                     <div class="actions">
-                      <%= f.submit "Ingresar", class: "btn btn-block contact-btn" %>
+                   
+
+                      <%= button_tag type: 'submit', class: "btn btn-block contact-btn" do %>
+                       <span class="glyphicon glyphicon-share" aria-hidden="true"></span> Iniciar Sesión
+
+
+                       <% end %>
                     </div>
                     <br>
                   <% end %>
@@ -51,7 +57,6 @@
 
   margin: 0px;
   transition: all 0.5s;
-  text-transform: uppercase;
   padding: 10px 10px;
   background: #02A8F4; 
   color: #f1f1f1;

@@ -56,6 +56,9 @@ gem "nested_form", :git => 'https://github.com/ryanb/nested_form.git'
 gem 'ckeditor_rails', '~> 4.5', '>= 4.5.10'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'will_paginate'
+#Fronend
+gem 'will_paginate-bootstrap'
 gem 'wicked_pdf'
 gem 'roo'
 gem 'wkhtmltopdf-binary'

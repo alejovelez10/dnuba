@@ -15,5 +15,27 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require turbolinks
+//= require ckeditor-jquery
 //= require bootstrap-sprockets
 //= require_tree .
+
+
+
+
+$(document).on('turbolinks:load',function() {
+
+$('.ckeditor').ckeditor({
+  // optional config
+});
+
+
+
+CKEDITOR.config.toolbar= [
+       { name: 'list', items : [ 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl' ] },
+        { name: 'insert', items: ['Image','Table','SpecialChar']},
+       { name: 'clipboard', items: ['Cut','Copy','Paste','PasteText', 'PasteFromWord', '-', 'Undo', 'Redo']},
+       { name: 'basicstyles', items: ['Bold','Italic','Strike', '-','RemoveFormat']}
+
+];
+
+});

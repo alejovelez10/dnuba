@@ -2,9 +2,9 @@
 
 <%if @post.estado == true%>
 
-$('#hola<%= @post.id %>').css({'color': 'red' });
+$('#hola<%= @post.id %>').css({'color': '#eeee00' });
 <%else%>
 
-$('#hola<%= @post.id %>').css({'color': 'black'});
+$('#hola<%= @post.id %>').css({'color': 'gray'});
 
 <%end%>
