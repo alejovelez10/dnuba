@@ -1,0 +1,10 @@
+
+
+<%if @post.estado == true%>
+
+$('#hola<%= @post.id %>').css({'color': 'red' });
+<%else%>
+
+$('#hola<%= @post.id %>').css({'color': 'black'});
+
+<%end%>

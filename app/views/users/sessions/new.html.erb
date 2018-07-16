@@ -1,38 +1,88 @@
 
+<div class="container" style="margin-top: 70px;">
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <div class="thumbnail">
+        <br>
+         <br>
+          <br>
 
+           <img width="300px" class="logo_dnuba" src="https://mybc1.s3.amazonaws.com/uploads/rseguimiento/evidencia/184/Logos%C3%ADmbolo_dnuba__2_-02.png" alt="">
+             <br>
+               <br>
+                 <br>
+                  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                    <div class="field">
+                      <%= f.label :Email %><br />
+                      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control pl-icon", id: "name", :placeholder => "Direccion de Correo", :required => true %>
+                    </div>
+                    <br>
+                    <div class="field">
+                      <%= f.label :Contraseña %><br />
+                      <%= f.password_field :password, autocomplete: "off" , class: "form-control pl-icon", :placeholder => "Contraseña", :required => true %>
+                    </div>
 
-<div class="container">   
-    <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-              <h2 class="text-center">Iniciar Sesion</h2>
-              <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-                <div class="field">
-                  <%= f.label :email %><br />
-                  <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form form-control" %>
-                </div>
-
-                <div class="field">
-                  <%= f.label :password %><br />
-                  <%= f.password_field :password, autocomplete: "off" , class: "form form-control" %>
-                </div>
-
-                <br>
-                <div class="actions">
-                  <%= f.submit "Ingresar", class: "btn btn-primary btn-block" %>
-                </div>
-            <% end %>
-
-
-        <%= render "users/shared/links" %>
-
-        </div>
-      
-    </div>
-  
+                    <br>
+                    <div class="actions">
+                      <%= f.submit "Ingresar", class: "btn btn-block contact-btn" %>
+                    </div>
+                    <br>
+                  <% end %>
+              </div>      
+          </div>
+      </div>
 </div>
+
+
 <style type="text/css">
-  h2{
-    color: gray;
-    background: white;
+  
+  .thumbnail{
+
+    border-radius: 3%;
+    background-color: #181818;
+    margin-left: 2px;
+    padding-right: 20px; 
+    padding-left: 20px;
+    border-color: #02A8F4;
+
   }
+
+  .contact-btn{
+
+  margin: 0px;
+  transition: all 0.5s;
+  text-transform: uppercase;
+  padding: 10px 10px;
+  background: #02A8F4; 
+  color: #f1f1f1;
+  border-radius: 10px;
+  font-size: 16px;
+
+  }
+
+  .contact-btn:hover{
+
+  border: 1px solid #02A8F4;
+  color: #fff;
+  background-color: #343434;
+
+  }
+
+  .field{
+    color: #02A8F4;
+  }
+
+.form-control {
+  display: block;
+  width: 100%;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.4;
+  background-color: #272727;
+  border: 1px solid #888888;
+  border-radius: 0px;
+  color: #888888;
+}
+
 </style>
