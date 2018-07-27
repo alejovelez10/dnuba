@@ -9,9 +9,9 @@ Rails.application.routes.draw do
   resources :type_spends
   devise_for :users
   
-  root 'home#construccion'
+  root 'home#inicio'
   
-  get 'inicio', to:'home#inicio'
+  
   get "contacts", to: "contacts#index"
 
     post "cambios/:id", to: "posts#cambios", as: "cambios"
