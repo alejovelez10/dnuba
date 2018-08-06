@@ -1,34 +1,53 @@
-<%= form_with(model: type_spend, local: true) do |form| %>
-  <% if type_spend.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(type_spend.errors.count, "error") %> prohibited this type_spend from being saved:</h2>
+<div class="container" style="padding: 0px;">
+  <div class="col-md-4" style="padding: 0px;">
+    <%= form_with(model: type_spend, local: true) do |form| %>
+      <% if type_spend.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(type_spend.errors.count, "error") %> prohibited this type_spend from being saved:</h2>
 
-      <ul>
-      <% type_spend.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+          <ul>
+          <% type_spend.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label "Nombre" %>
-    <%= form.text_field :name, id: :type_spend_name, class: "form form-control"  %>
+      <div class="field">
+        <%= form.label "Nombre" %>
+        <%= form.text_field :name, id: :type_spend_name, class: "form form-control"  %>
+      </div>
+      <br>
+
+      <div class="field">
+        <%= form.label "Codigo" %>
+        <%= form.text_field :code, id: :type_spend_code, class: "form form-control", :maxlength => 5, id: "form2" %>
+      </div>
+      <br>
+      <div class="field">
+        <%= form.label "Descripcion" %>
+        <%= form.text_area :description, id: :type_spend_description , class: "form form-control" %>
+      </div>
+      <br>
+
+
+      <%=form.hidden_field :user_id, :value => current_user.id%>
+
+      <div class="actions">
+        <%= form.submit "Guardar" , class: "btn btn-info" %>
+      </div>
+    <% end %>
+
+    <style type="text/css">
+
+    #form2{
+       width: 20%;
+      }
+
+      .form{
+        border-bottom: 2px solid #3792F8; 
+      }
+
+    </style>
   </div>
-
-  <div class="field">
-    <%= form.label "Descripcion" %>
-    <%= form.text_area :description, id: :type_spend_description , class: "form form-control" %>
-  </div>
-
-  <div class="field">
-    <%= form.label "Codigo" %>
-    <%= form.text_field :code, id: :type_spend_code, class: "form form-control"  %>
-  </div>
-
-                  <%=form.hidden_field :user_id, :value => current_user.id%>
-                    <br>
-                    <div class="actions">
-                      <%= form.submit "Guardar" , class: "btn btn-primary btn-block" %>
-                    </div>
-                  <% end %>
+</div>

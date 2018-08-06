@@ -1,8 +1,16 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Categories</h1>
+<div class="row title">
+  <div class="col-md-8">
+      <h2 >Categorias</h2>
+  </div>
+  <div class="col-md-4">
+    <%= link_to 'Post', posts_path, class: "btn btn-info" %>
+    <%= link_to 'Nueva Categoria', new_category_path, class: "btn btn-info" %>
+  </div>
+</div>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Name</th>
@@ -16,9 +24,15 @@
       <tr>
         <td><%= category.name %></td>
         <td><%= category.description %></td>
-        <td><%= link_to 'Show', category %></td>
-        <td><%= link_to 'Edit', edit_category_path(category) %></td>
-        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to  edit_category_path(category), class: "btn btn-info" do%>
+        
+        <span class="glyphicon glyphicon-wrench"></span>
+        <% end -%>
+
+        <%= link_to category, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" do %>
+        <span class="glyphicon glyphicon-trash"></span>
+        <% end -%>
+        </td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +40,3 @@
 
 <br>
 
-<%= link_to 'New Category', new_category_path %>

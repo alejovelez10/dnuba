@@ -1,0 +1,45 @@
+<div class="container" style="margin-top: 40px; padding: 0px;" >
+  <div class="row title">
+    <div class="col-md-8">
+        <h2 >Nuevo Usuario</h2>
+    </div>
+    <div class="col-md-4">
+        <%= link_to "Volver", usuarios_path, class: "btn btn-info" %>
+    </div>
+  </div>
+<br>
+<br>
+    <div class="col-md-4" style="padding: 0px;">
+        <%= form_tag crear_user_path do%>
+          <%= devise_error_messages! %>
+          <div class="field">
+            <%= label_tag :email %>
+            <%= email_field_tag :email, nil, autofocus: true,  autocomplete: "off", class: "form form-control", :required => true%>
+          </div>
+    </div>
+    <div class="col-md-4">
+          <div class="field">
+            <%= label_tag :Contraseña %>
+            <%= password_field_tag :password, nil, autofocus: true,  autocomplete: "off", class: "form form-control"%>
+          </div>
+    </div>
+    <div class="col-md-4">
+          <div class="field">
+            <%= label_tag :Confirmar_Contraseña %>
+            <%= password_field_tag :password_confirmation, nil, autofocus: true, autocomplete: "off", class: "form form-control"%>
+          </div>  
+          <br>
+    </div>
+    <div class="actions">
+      <%= submit_tag "Guardar", class: "btn btn-info"%>
+    </div>
+       <% end %>
+    </div>
+  </div>
+
+<style type="text/css">
+.form{
+  border-bottom: 2px solid #3792F8; 
+}
+</style>
+
