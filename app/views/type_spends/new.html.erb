@@ -1,14 +1,11 @@
-<div class="container">   
-    <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-              <h2 class="text-center">Nuevo tipo de gasto</h2>
-<%= render 'form', type_spend: @type_spend %>
-
-<%= link_to 'Regresar', type_spends_path %>
-
-
-     </div>
-      
-    </div>
-  
+<div class="row title">
+  <div class="col-md-8">
+      <h2 >Nuevo Tipo De Gasto</h2>
+  </div>
+  <div class="col-md-4">
+	  <%= link_to 'Volver', type_spends_path, class: "btn btn-default" %>
+  </div>
 </div>
+<br>
+<br>  
+<%= render 'form', type_spend: @type_spend %>

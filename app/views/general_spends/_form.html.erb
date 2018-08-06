@@ -1,66 +1,72 @@
-<%= form_with(model: general_spend, local: true) do |form| %>
-  <% if general_spend.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(general_spend.errors.count, "error") %> prohibited this general_spend from being saved:</h2>
+<div class="container" style="padding: 0px;">
+  <div class="col-md-4 col-md-offset-1" style="padding: 0px;">
 
-      <ul>
-      <% general_spend.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+    <%= form_with(model: general_spend, local: true) do |form| %>
+      <% if general_spend.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(general_spend.errors.count, "error") %> prohibited this general_spend from being saved:</h2>
+
+          <ul>
+          <% general_spend.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label "Descripcion" %>
-    <%= form.text_area :description, id: :general_spend_description , class: "form form-control"%>
+      <div class="form-group">
+        <%= form.label "Tipo de Gasto" %><br>
+       <%= form.select :type_spend_id,    TypeSpend.all.map { |u| [u.name, u.id] },{ include_blank: false },{ class: 'form form-control'  }%>  
+      </div>
+      <br>
+
+      <div class="field">
+        <%= form.label :value %>
+        <%= form.number_field :value, id: :general_spend_value, class: "form form-control" %>
+      </div>
+      <br>
+
+      <div class="field">
+        <%= form.label :spend_date %>
+        <%= form.date_field :spend_date, id: :general_spend_spend_date, class: "form form-control" %>
+      </div>
+      <br>
+
+      <div class="form-group">
+        <%= form.label "Centro de Costo" %><br>
+       <%= form.select :cost_center_id,    CostCenter.all.map { |u| [u.name, u.id] },{ include_blank: false },{ class: 'form form-control'  }%>  
+      </div>
+      <br>
   </div>
+  <div class="col-md-4 col-md-offset-1" style="padding: 0px;">
+      <div class="field">
+        <%= form.label "Soporte" %>
+        <%= form.file_field :file, id: :general_spend_file, class: "form form-control" %>
+      </div>
+      <br>
 
- 
+      <div class="form-group">
+        <%= form.label "Responsable" %><br>
+       <%= form.select :user_id,    User.all.map { |u| [u.email, u.id] },{ include_blank: false },{ class: 'form form-control'  }%> 
+      </div>
+      <br>
 
-  <div class="form-group">
-    <%= form.label "Tipo de Gasto" %><br>
-   <%= form.select :type_spend_id,    TypeSpend.all.map { |u| [u.name, u.id] },{ include_blank: false },{ class: 'form-control'  }%>
+      <div class="field">
+        <%= form.label "Descripcion" %>
+        <%= form.text_area :description, id: :general_spend_description , class: "form form-control"%>
+      </div>
+      <br>
 
-  
-    
+      <div class="actions">
+        <%= form.submit "Guardar" , class: "btn btn-info" %>
+      </div>
+    <% end %>
+    <br>
   </div>
+</div>
 
-
-  <div class="field">
-    <%= form.label :value %>
-    <%= form.number_field :value, id: :general_spend_value, class: "form form-control" %>
-  </div>
-
-  <div class="field">
-    <%= form.label :spend_date %>
-    <%= form.date_field :spend_date, id: :general_spend_spend_date, class: "form form-control" %>
-  </div>
-
- 
-  <div class="form-group">
-    <%= form.label "Centro de Costo" %><br>
-   <%= form.select :cost_center_id,    CostCenter.all.map { |u| [u.name, u.id] },{ include_blank: false },{ class: 'form-control'  }%>
-
-  
-    
-  </div>
-
-  <div class="field">
-    <%= form.label "Soporte" %>
-    <%= form.file_field :file, id: :general_spend_file, class: "form form-control" %>
-  </div>
-
-   <div class="form-group">
-    <%= form.label "Responsable" %><br>
-   <%= form.select :user_id,    User.all.map { |u| [u.email, u.id] },{ include_blank: false },{ class: 'form-control'  }%>
-
-  
-    
-  </div>
-
-     
-                    <div class="actions">
-                      <%= form.submit "Guardar" , class: "btn btn-primary btn-block" %>
-                    </div>
-                  <% end %>
+<style type="text/css">
+  .form{
+    border-bottom: 2px solid #3792F8;
+  }
+</style>

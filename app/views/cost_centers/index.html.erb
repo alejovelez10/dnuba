@@ -34,9 +34,16 @@
         <td><%= number_to_currency(cost_center.general_spends.sum(:value)).chomp(".00") %></td>
         <td><%= number_to_currency(cost_center.incomes.sum(:value) - cost_center.general_spends.sum(:value)).chomp(".00") %></td>
 
-        <td><%= link_to 'Ver', cost_center %></td>
-        <td><%= link_to 'Editar', edit_cost_center_path(cost_center) %></td>
-        <td><%= link_to 'Eliminar', cost_center, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to cost_center, class: "btn btn-info" do %>
+          <i class="far fa-eye"></i>
+          <% end -%>
+        <%= link_to edit_cost_center_path(cost_center), class: "btn btn-info" do %>
+        <i class="fas fa-pencil-alt"></i>
+        <% end -%>
+        <%= link_to cost_center, method: :delete, data: { confirm: 'Estas Seguro?' }, class: "btn btn-danger" do %>
+        <i class="fas fa-trash-alt "></i>
+        <% end -%>
+        </td>
       </tr>
     <% end %>
   </tbody>
