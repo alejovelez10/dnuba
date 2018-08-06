@@ -29,7 +29,7 @@ module ApplicationHelper
 	 	elsif controller_name == "admin"
 	 		@admin = ["", "", "", "", "", "active", "", ""]
 
-	 	elsif controller_name == "posts"
+	 	elsif controller_name == "posts" || controller_name == "categories"
 	 		@admin = ["", "", "", "", "", "", "active", ""]
 
  	end
