@@ -21,7 +21,8 @@
       <th>Valor</th>
       <th>Responsable</th>
       <th>Centro de Costo</th>
-      <th>Evidencia</th>
+      <th>Soporte</th>
+      <th>Acciones</th>
     </tr>
   </thead>
 
@@ -29,17 +30,24 @@
     <% @general_spends.each do |general_spend| %>
       <tr>
       <td><%= general_spend.spend_date %></td>
-        <td><%= general_spend.description %></td>
+        <td style="width: 100px"><%= general_spend.description %></td>
         <td><%= general_spend.type_spend.name if general_spend.type_spend  %></td>
        
         <td><%= number_to_currency(general_spend.value).chomp(".00") %></td>
          <td><%= general_spend.user.email %></td>
         <td><%= general_spend.cost_center.name %></td>
         <td>
-        <%= link_to "Descargar Soporte",general_spend.file_url if general_spend.file_url%>
+        <%= link_to  general_spend.file_url , class: "btn btn-primary" do%>
+            <i class="fa fa-download"></i>
+        <%end%>
+        </td>
+
+        <td>
         <%= link_to general_spend, class: "btn btn-info" do  %>
         <i class="far fa-eye"></i>
         <% end -%>
+        
+        
         <%= link_to edit_general_spend_path(general_spend), class: "btn btn-info" do %>
         <i class="fas fa-pencil-alt"></i>
         <% end -%>
