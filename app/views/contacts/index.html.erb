@@ -4,10 +4,6 @@
   <div class="col-md-8">
       <h2 >CONCTACTOS</h2>
   </div>
-  <div class="col-md-4">
-      <%= link_to 'Crear tipo de gasto', new_type_spend_path, class: "btn btn-primary" %>
-  </div>
-  
 </div>
 
 
@@ -27,6 +23,12 @@
 	        <td><%= contact.email%></td>
 	        <td><%= contact.subject%></td>
 	        <td><%= contact.message%></td>
+          <td>
+            <%= link_to delete_contact_path(contact.id), method: :delete, data: {confirm: "Estas Seguro?"}, class: "btn btn-danger" do  %>
+            <i class="fas fa-trash-alt "></i>
+            <% end -%>
+          </td>
+
 	    </tr>
 	<% end -%>
   </tbody>

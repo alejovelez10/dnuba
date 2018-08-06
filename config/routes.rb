@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :type_spends
   devise_for :users
   
-  root 'home#inicio'
+
   
   
   get "contacts", to: "contacts#index"

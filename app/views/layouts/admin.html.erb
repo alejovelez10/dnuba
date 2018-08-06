@@ -1,71 +1,144 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>dnuba</title>
+    <title>Administracion</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <link rel="icon" href="https://mybc1.s3.amazonaws.com/uploads/rseguimiento/evidencia/183/Isotipo_dnuba__2_-01.png">
+    <link rel="apple-touch-icon" href="https://mybc1.s3.amazonaws.com/uploads/rseguimiento/evidencia/183/Isotipo_dnuba-01.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/img/template/icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/img/template/icon-114x114.png">
+
   </head>
 
   <body>
-  <%if user_signed_in?%>
-  <nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#"><img width="100px" src="https://mybc1.s3.amazonaws.com/uploads/rseguimiento/evidencia/176/Logo__dnuba_Propuesta-01.png" alt=""></a>
-    </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active"><%= link_to "CENTROS DE COSTOS", cost_centers_path, class: "" %></li>
-        <li><%= link_to "TIPOS DE GASTOS", type_spends_path , class: ""%></li>
-         <li><%= link_to "GASTOS GENERALES", general_spends_path , class: ""%></li>
-          <li><%= link_to "INGRESOS", incomes_path , class: ""%></li>
-          <li><%= link_to "CONTACTENOS", contacts_path , class: ""%></li>
-          <li><%= link_to "BASE DE CONOCIMINETO", posts_path , class: ""%></li>
-
-               
-      </ul>
-     
-      <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "CERRAR SESION", destroy_user_session_path, method: :delete %></li>
-       <!-- <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-          </ul>
-        </li>-->
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
+<%if user_signed_in?%>
+  <div id='cssmenu'>
+    <ul>
+     <li class='active'><%= link_to "Centro de Costos", cost_centers_path, class: "" %></li>
+     <li><%= link_to "Tipo De Gastos", type_spends_path , class: ""%></li>
+     <li><%= link_to "Gastos Generales", general_spends_path , class: ""%></li>
+     <li><%= link_to "Ingresos", incomes_path , class: ""%></li>
+     <li><%= link_to "Contactos", contacts_path , class: ""%></li>
+     <li><%= link_to "Usuarios", usuarios_path  , class: ""%></li>
+     <li><%= link_to "Base de Conocimiento", posts_path , class: ""%></li>
+     <li><%= link_to "Cerrar Session", destroy_user_session_path, method: :delete %></li>
+    </ul>
+  </div>
 <%end%>
+
+<br>
+<br>
+
+<style type="text/css">
+@import url(http://fonts.googleapis.com/css?family=Raleway);
+#cssmenu,
+#cssmenu ul,
+#cssmenu ul li,
+#cssmenu ul li a {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  list-style: none;
+  line-height: 1;
+  display: block;
+  position: relative;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+#cssmenu:after,
+#cssmenu > ul:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+#cssmenu {
+  width: auto;
+  border-bottom: 3px solid #3792F8;
+  font-family: Raleway, sans-serif;
+  line-height: 1;
+}
+#cssmenu ul {
+  background: #ffffff;
+}
+#cssmenu > ul > li {
+  float: left;
+}
+#cssmenu.align-center > ul {
+  font-size: 0;
+  text-align: center;
+}
+#cssmenu.align-center > ul > li {
+  display: inline-block;
+  float: none;
+}
+#cssmenu.align-right > ul > li {
+  float: right;
+}
+#cssmenu.align-right > ul > li > a {
+  margin-right: 0;
+  margin-left: -4px;
+}
+#cssmenu > ul > li > a {
+  z-index: 2;
+  padding: 18px 25px 12px 25px;
+  font-size: 15px;
+  font-weight: 400;
+  text-decoration: none;
+  color: #444444;
+  -webkit-transition: all .2s ease;
+  -moz-transition: all .2s ease;
+  -ms-transition: all .2s ease;
+  -o-transition: all .2s ease;
+  transition: all .2s ease;
+  margin-right: -4px;
+}
+#cssmenu > ul > li.active > a,
+#cssmenu > ul > li:hover > a,
+#cssmenu > ul > li > a:hover {
+  color: #ffffff;
+}
+#cssmenu > ul > li > a:after {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+  width: 100%;
+  height: 120%;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  content: "";
+  -webkit-transition: all .2s ease;
+  -o-transition: all .2s ease;
+  transition: all .2s ease;
+  -webkit-transform: perspective(5px) rotateX(2deg);
+  -webkit-transform-origin: bottom;
+  -moz-transform: perspective(5px) rotateX(2deg);
+  -moz-transform-origin: bottom;
+  transform: perspective(5px) rotateX(2deg);
+  transform-origin: bottom;
+}
+#cssmenu > ul > li.active > a:after,
+#cssmenu > ul > li:hover > a:after,
+#cssmenu > ul > li > a:hover:after {
+  background: #3792F8;
+}
+
+</style>
 
 <div class="container">
   <%= yield %>
 </div>
     
   </body>
-
-  <style type="text/css" media="screen">
-    .navbar-brand {
-  
-    padding: 5px 15px;
-  
-}
-  </style>
 </html>
