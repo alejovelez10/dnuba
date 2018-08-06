@@ -5,7 +5,7 @@ development:
   database: dnuba_development
   pool: 5
   username: postgres 
-  password: Servidual2016
+  password: ruby0906
   host: localhost
   port: 5432
 
@@ -17,7 +17,7 @@ test:
   database: dnuba_test
   pool: 5
   username: postgres 
-  password: Servidual2016
+  password: ruby0906
   host: localhost
   port: 5432
   
@@ -28,6 +28,6 @@ production:
   database: dnuba_production
   pool: 5
   username: postgres
-  password: alejo0906
+  password: ruby0906
   host: localhost
   port: 5432

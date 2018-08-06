@@ -16,18 +16,18 @@
   </head>
 
   <body>
-
+<%admin_menu%>
 <%if user_signed_in?%>
   <div id='cssmenu'>
     <ul>
-     <li class='active'><%= link_to "Centro de Costos", cost_centers_path, class: "" %></li>
-     <li><%= link_to "Tipo De Gastos", type_spends_path , class: ""%></li>
-     <li><%= link_to "Gastos Generales", general_spends_path , class: ""%></li>
-     <li><%= link_to "Ingresos", incomes_path , class: ""%></li>
-     <li><%= link_to "Contactos", contacts_path , class: ""%></li>
-     <li><%= link_to "Usuarios", usuarios_path  , class: ""%></li>
-     <li><%= link_to "Base de Conocimiento", posts_path , class: ""%></li>
-     <li><%= link_to "Cerrar Session", destroy_user_session_path, method: :delete %></li>
+     <li class="<%= @admin[0]%>"> <%= link_to "Centro de Costos", cost_centers_path, class: "" %></li>
+     <li class="<%= @admin[1]%> "><%= link_to "Tipo De Gastos", type_spends_path , class: ""%></li>
+     <li class="<%= @admin[2]%>" ><%= link_to "Gastos Generales", general_spends_path , class: ""%></li>
+     <li class="<%= @admin[3]%>" ><%= link_to "Ingresos", incomes_path , class: ""%></li>
+     <li class="<%= @admin[4]%>" ><%= link_to "Contactos", contacts_path , class: ""%></li>
+     <li class="<%= @admin[5]%>" ><%= link_to "Usuarios", usuarios_path  , class: ""%></li>
+     <li class="<%= @admin[6]%>" ><%= link_to "Base de Conocimiento", posts_path , class: ""%></li>
+     <li class="<%= @admin[7]%>" ><%= link_to "Cerrar Session", destroy_user_session_path, method: :delete %></li>
     </ul>
   </div>
 <%end%>

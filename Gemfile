@@ -36,12 +36,13 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem "mini_magick"
 gem 'annotate'
 
+gem 'will_paginate-bootstrap'
+gem 'will_paginate'
 
 gem 'jquery-ui-rails'
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 #Guardar en amazon
-gem 'fog', '~> 1.38'
 gem 'figaro'
 gem 'chartkick', '~> 2.2', '>= 2.2.3'
 #Frontend
