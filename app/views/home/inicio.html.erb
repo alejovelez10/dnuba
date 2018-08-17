@@ -424,7 +424,11 @@
 					<div class="col-md-8">
 						<div class="footer-single-contact">
 							<div class="contact-form">
-									<form id="contact-form" action="/create_contacts" accept-charset="UTF-8" data-remote="true" method="post"><input name="utf8" type="hidden" value="✓">
+									
+
+                             <%=form_tag create_contacts_path, remote: true, method: :post,  authenticity_token: true%>                               
+
+									<input name="utf8" type="hidden" value="✓">
 									<div class="form-group col-md-6">
 									<input type="text" name="name" id="name" class="form-control pl-icon" placeholder="&#xf2c0; Nombre" required="">
 									</div>
