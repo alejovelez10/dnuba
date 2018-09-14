@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
 
+  resources :bank_images
   resources :categories
   resources :posts
   resources :incomes
