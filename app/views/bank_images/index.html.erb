@@ -1,0 +1,99 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Banco de Images</h1>
+  <br>
+    <div class="col-md-3" style="padding: 0px; padding-right: 10px !important">
+      <div class="thumbnail">
+          <img src="https://www.w3schools.com/w3images/nature.jpg" alt="Fjords" style="width:100%">
+          <div class="caption" style="margin-top: 10px;">
+            <p>Lorem ipsum donec id elitdddddddddddddddddddd non misssssss porta gravida at eget metus.</p>
+          </div>
+        <div class="container-fluid" style="padding: 0px">
+          <button class="btn btn-primary">Mostrar</button>
+          <button class="btn btn-danger">Eliminar</button>
+        </div>
+        <br>
+      </div>
+    </div>
+
+        <div class="col-md-3" style="padding: 0px; padding-right: 10px !important">
+      <div class="thumbnail">
+          <img src="https://www.w3schools.com/w3images/nature.jpg" alt="Fjords" style="width:100%">
+          <div class="caption" style="margin-top: 10px;">
+            <p>Lorem ipsum donec id elitdddddddddddddddddddd non misssssss porta gravida at eget metus.</p>
+          </div>
+        <div class="container-fluid" style="padding: 0px">
+          <button class="btn btn-primary">Mostrar</button>
+          <button class="btn btn-danger">Eliminar</button>
+        </div>
+        <br>
+      </div>
+    </div>
+
+        <div class="col-md-3" style="padding: 0px; padding-right: 10px !important">
+      <div class="thumbnail">
+          <img src="https://www.w3schools.com/w3images/nature.jpg" alt="Fjords" style="width:100%">
+          <div class="caption" style="margin-top: 10px;">
+            <p>Lorem ipsum donec id elitdddddddddddddddddddd non misssssss porta gravida at eget metus.</p>
+          </div>
+        <div class="container-fluid" style="padding: 0px">
+          <button class="btn btn-primary">Mostrar</button>
+          <button class="btn btn-danger">Eliminar</button>
+        </div>
+        <br>
+      </div>
+    </div>
+
+        <div class="col-md-3" style="padding: 0px; padding-right: 10px !important">
+      <div class="thumbnail">
+          <img src="https://www.w3schools.com/w3images/nature.jpg" alt="Fjords" style="width:100%">
+          <div class="caption" style="margin-top: 10px;">
+            <p>Lorem ipsum donec id elitdddddddddddddddddddd non misssssss porta gravida at eget metus.</p>
+          </div>
+        <div class="container-fluid" style="padding: 0px">
+          <button class="btn btn-primary">Mostrar</button>
+          <button class="btn btn-danger">Eliminar</button>
+        </div>
+        <br>
+      </div>
+    </div>
+
+       
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Achivo</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bank_images.each do |bank_image| %>
+      <tr>
+        <td><%= bank_image.title %></td>
+        <td><%= bank_image.description %></td>
+        <td><%= bank_image.achivo %></td>
+        <td><%= bank_image.user.email if bank_image.user%></td>
+        <td><%= link_to 'Show', bank_image %></td>
+        <td><%= link_to 'Edit', edit_bank_image_path(bank_image), remote: true %></td>
+        <td><%= link_to 'Destroy', bank_image, method: :delete, data: {
+              confirm: '¿Estas Seguro?',
+              'confirm-button-text': 'Borrar',
+              'cancel-button-text': 'Cancelar',
+              'confirm-button-color': '#CC0000',
+               text: 'Recuerda que el registro se borrara permanentemente',
+              'image-url': ''} %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Añadir Nueva Imagen', new_bank_image_path, remote: true %>
+

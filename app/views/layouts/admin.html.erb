@@ -19,21 +19,81 @@
 
 <%admin_menu%>
 <%if user_signed_in?%>
+
+  <div class="container-fluid" style="background-color: black;">
+    <img width="250px" class="logo_dnuba" src="https://mybc1.s3.amazonaws.com/uploads/rseguimiento/evidencia/184/Logos%C3%ADmbolo_dnuba__2_-02.png" alt="" style="padding-top: 10px; padding-bottom: 10px;">
+  </div>
+
   <div id='cssmenu'>
     <ul>
-     <li class="<%= @admin[0]%>"> <%= link_to "Centro de Costos", cost_centers_path, class: "" %></li>
-     <li class="<%= @admin[1]%> "><%= link_to "Tipo De Gastos", type_spends_path , class: ""%></li>
-     <li class="<%= @admin[2]%>" ><%= link_to "Gastos Generales", general_spends_path , class: ""%></li>
-     <li class="<%= @admin[3]%>" ><%= link_to "Ingresos", incomes_path , class: ""%></li>
-     <li class="<%= @admin[4]%>" ><%= link_to "Contactos", contacts_path , class: ""%></li>
-     <li class="<%= @admin[5]%>" ><%= link_to "Usuarios", usuarios_path  , class: ""%></li>
-     <li class="<%= @admin[6]%>" ><%= link_to "Base de Conocimiento", posts_path , class: ""%></li>
-     <li class="<%= @admin[7]%>" ><%= link_to "Cerrar Session", destroy_user_session_path, method: :delete %></li>
+     <li class="<%= @admin[0]%>"> <%= link_to cost_centers_path, class: "" do %>
+       <i class="fas fa-hand-holding-usd"  style="margin-right: 3px;"></i> Centro de Costos
+       <% end -%>
+     </li>
+
+     <li class="<%= @admin[1]%>"><%= link_to type_spends_path , class: "" do%>
+      <i class="fas fa-file-invoice-dollar" style="margin-right: 3px;"></i> Tipo De Gastos
+       <% end -%>
+     </li>
+
+     <li class="<%= @admin[2]%>" ><%= link_to general_spends_path , class: "" do%>
+       <i class="fas fa-dollar-sign" style="margin-right: 3px;"></i> Gastos Generales
+       <% end -%>
+     </li>
+
+     <li class="<%= @admin[3]%>" ><%= link_to  incomes_path , class: "" do%>
+      <i class="far fa-credit-card" style="margin-right: 3px;"></i> Ingresos
+       <% end -%>
+     </li>
+
+     <li class="<%= @admin[4]%>" ><%= link_to  contacts_path , class: "" do%>
+      <i class="fa fa-envelope" style="margin-right: 3px;"></i> Contactos
+     <% end -%>       
+     </li>
+
+     <li class="<%= @admin[5]%>" ><%= link_to usuarios_path  , class: "" do%>
+      <i class="fa fa-users" style="margin-right: 3px;"></i> Usuarios
+     <% end -%>
+       
+     </li>
+
+     <li class="has-sub"><a style="user-select: none;">
+        <span class = "color-gray hidden-xs hidden-sm"><i class="fa fa-arrow-down" style="margin-right: 3px;"></i> Conocimiento</span></a>
+
+          <ul style="max-width: 155px;">
+            <li><%= link_to  posts_path do%>
+              <i class="fas fa-code"  style="margin-right: 3px;"></i> Base de Conocimiento
+              <% end -%>
+            </li>
+
+            <li><%= link_to  bank_images_path do%>
+              <i class="fas fa-image" style="margin-right: 3px;" ></i> Banco de Imagenes
+              <% end -%>
+            </li>
+          </ul>
+
+     </li>
+
+      <li class="has-sub"><a style="user-select: none;">
+        <span class = "color-gray hidden-xs hidden-sm"><i class="fa fa-arrow-down" style="margin-right: 3px;"></i>Cuenta</span></a>
+
+          <ul style="max-width: 112px;">
+            <li><%= link_to editar_user_path(current_user.id) do%>
+              <i class="fas fa-user-edit" style="margin-right: 3px;"></i> Editar Cuenta
+              <% end -%>
+            </li>
+            <li><%= link_to destroy_user_session_path, method: :delete do %>
+              <i class="fas fa-sign-in-alt" style="margin-right: 3px;"></i> Cerrar Session
+              <% end -%>
+            </li>
+          </ul>
+
+      </li>
+
     </ul>
   </div>
-<%end%>
 
-<br>
+<%end%>
 <br>
 
 
@@ -45,3 +105,10 @@
     
   </body>
 </html>
+
+<style type="text/css">
+  .hola{
+    float: right !important;
+  }
+
+</style>

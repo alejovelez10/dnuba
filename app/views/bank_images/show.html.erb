@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @bank_image.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @bank_image.description %>
+</p>
+
+<p>
+  <strong>Achivo:</strong>
+  <%= @bank_image.achivo_url %>
+</p>
+<%= image_tag(@bank_image.achivo_url, alt: 'Image') if @bank_image.achivo? %>
+<p>
+  <strong>User:</strong>
+  <%= @bank_image.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_bank_image_path(@bank_image) %> |
+<%= link_to 'Back', bank_images_path %>
