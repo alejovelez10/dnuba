@@ -14,7 +14,7 @@
   <strong>Achivo:</strong>
   <%= @bank_image.achivo_url %>
 </p>
-<%= image_tag(@bank_image.achivo_url, alt: 'Image') if @bank_image.achivo? %>
+<%= image_tag(@bank_image.achivo_url(:thumb), alt: 'Image') if @bank_image.achivo? %>
 <p>
   <strong>User:</strong>
   <%= @bank_image.user_id %>
