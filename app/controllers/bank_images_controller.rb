@@ -28,7 +28,7 @@ class BankImagesController < ApplicationController
 
     respond_to do |format|
       if @bank_image.save
-        format.html { redirect_to @bank_image, notice: 'Bank image was successfully created.' }
+        format.html { redirect_to bank_images_path, notice: 'Bank image was successfully created.' }
         format.json { render :show, status: :created, location: @bank_image }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class BankImagesController < ApplicationController
   def update
     respond_to do |format|
       if @bank_image.update(bank_image_params)
-        format.html { redirect_to @bank_image, notice: 'Bank image was successfully updated.' }
+        format.html { redirect_to bank_images_path, notice: 'Bank image was successfully updated.' }
         format.json { render :show, status: :ok, location: @bank_image }
       else
         format.html { render :edit }

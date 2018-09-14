@@ -1,99 +1,81 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Banco de Images</h1>
+<div class="row title">
+  <div class="col-md-8" style="padding: 0px;">
+    <h2>Banco de Imagenes</h2>
+  </div>
+
+  <div class="col-md-4">
+    <%= link_to 'Añadir Nueva Imagen', new_bank_image_path, remote: true, class: "btn btn-default" %>
+  </div>
+
+</div>
   <br>
+  <% @bank_images.each do |bank_image| %>
     <div class="col-md-3" style="padding: 0px; padding-right: 10px !important">
       <div class="thumbnail">
-          <img src="https://www.w3schools.com/w3images/nature.jpg" alt="Fjords" style="width:100%">
-          <div class="caption" style="margin-top: 10px;">
-            <p>Lorem ipsum donec id elitdddddddddddddddddddd non misssssss porta gravida at eget metus.</p>
+          <%= image_tag(bank_image.achivo_url, alt: 'Image') if bank_image.achivo? %>
+          <div class="col-md-12" style="padding-left: 10px;">
+            <legend><h3><%= bank_image.title %></h3></legend>
+            <h6><strong>Creado Por:</strong></h6>
+            <b><h5 style="margin-bottom: 18px;"><%= bank_image.user.email%></h5></b>
           </div>
-        <div class="container-fluid" style="padding: 0px">
-          <button class="btn btn-primary">Mostrar</button>
-          <button class="btn btn-danger">Eliminar</button>
-        </div>
-        <br>
-      </div>
-    </div>
-
-        <div class="col-md-3" style="padding: 0px; padding-right: 10px !important">
-      <div class="thumbnail">
-          <img src="https://www.w3schools.com/w3images/nature.jpg" alt="Fjords" style="width:100%">
           <div class="caption" style="margin-top: 10px;">
-            <p>Lorem ipsum donec id elitdddddddddddddddddddd non misssssss porta gravida at eget metus.</p>
+            <h6><strong>Descripcion:</strong></h6>
+            <p><%= bank_image.description %></p>
           </div>
-        <div class="container-fluid" style="padding: 0px">
-          <button class="btn btn-primary">Mostrar</button>
-          <button class="btn btn-danger">Eliminar</button>
-        </div>
-        <br>
-      </div>
-    </div>
-
-        <div class="col-md-3" style="padding: 0px; padding-right: 10px !important">
-      <div class="thumbnail">
-          <img src="https://www.w3schools.com/w3images/nature.jpg" alt="Fjords" style="width:100%">
-          <div class="caption" style="margin-top: 10px;">
-            <p>Lorem ipsum donec id elitdddddddddddddddddddd non misssssss porta gravida at eget metus.</p>
-          </div>
-        <div class="container-fluid" style="padding: 0px">
-          <button class="btn btn-primary">Mostrar</button>
-          <button class="btn btn-danger">Eliminar</button>
-        </div>
-        <br>
-      </div>
-    </div>
-
-        <div class="col-md-3" style="padding: 0px; padding-right: 10px !important">
-      <div class="thumbnail">
-          <img src="https://www.w3schools.com/w3images/nature.jpg" alt="Fjords" style="width:100%">
-          <div class="caption" style="margin-top: 10px;">
-            <p>Lorem ipsum donec id elitdddddddddddddddddddd non misssssss porta gravida at eget metus.</p>
-          </div>
-        <div class="container-fluid" style="padding: 0px">
-          <button class="btn btn-primary">Mostrar</button>
-          <button class="btn btn-danger">Eliminar</button>
-        </div>
-        <br>
-      </div>
-    </div>
-
-       
-
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Achivo</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @bank_images.each do |bank_image| %>
-      <tr>
-        <td><%= bank_image.title %></td>
-        <td><%= bank_image.description %></td>
-        <td><%= bank_image.achivo %></td>
-        <td><%= bank_image.user.email if bank_image.user%></td>
-        <td><%= link_to 'Show', bank_image %></td>
-        <td><%= link_to 'Edit', edit_bank_image_path(bank_image), remote: true %></td>
-        <td><%= link_to 'Destroy', bank_image, method: :delete, data: {
+        <div class="container-fluid" style="padding: 6px">
+          <%= link_to edit_bank_image_path(bank_image), class: "btn btn-info", remote: true do %>
+          <i class="fas fa-pencil-alt"></i>
+          <% end -%>
+          <%= link_to bank_image, method: :delete, data: {
               confirm: '¿Estas Seguro?',
               'confirm-button-text': 'Borrar',
               'cancel-button-text': 'Cancelar',
               'confirm-button-color': '#CC0000',
                text: 'Recuerda que el registro se borrara permanentemente',
-              'image-url': ''} %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+              'image-url': ''}, class: "btn btn-danger" do %>
+              <i class="fas fa-trash-alt"></i>
+                  <% end -%>
+                <br><br>
+              <input class="form form-control" type="input"  value="<%= bank_image.achivo_url%>" id="myInput<%= bank_image.id%>">
+              
+              <div class="tooltip1">
+                <button onclick="myFunction.call(this)" onmouseout="outFunc.call(this)" class="btn btn-warning">
+                  <span class="tooltiptext1" id="myTooltip<%= bank_image.id%>"> Copiar</span>
+                  <i class="far fa-clone"></i>
+                  </button>
+              </div>
 
-<br>
+        </div>
+      </div>
+    </div>
+  <% end %>
 
-<%= link_to 'Añadir Nueva Imagen', new_bank_image_path, remote: true %>
+  <style>
 
+    .thumbnail{
+      box-shadow: 0px 10px 56px rgba(217, 221, 222), 0px 2px 10px rgba(222, 27, 27, 0.12);
+    }
+
+  </style>
+  
+<script>
+
+  function myFunction() {
+    var copyText = $(this).parent().prev();
+
+    copyText.select();
+    document.execCommand("copy");
+    
+    var tooltip = $(this).children();
+    tooltip.text("Link Copiado")
+  }
+
+
+
+  function outFunc() {
+    var tooltip = $(this).children();
+    tooltip.text(" Copiar");
+  }
+
+</script>
