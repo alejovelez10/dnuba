@@ -4,8 +4,17 @@ class GeneralSpendsController < ApplicationController
 
   # GET /general_spends
   # GET /general_spends.json
+
   def index
-    @general_spends = GeneralSpend.all
+
+    if  params[:search] || params[:search1] || params[:search2]
+
+      @general_spends = GeneralSpend.search(params[:search], params[:search1], params[:search2]).order(created_at: :desc)
+    else
+
+      @general_spends = GeneralSpend.order(created_at: :desc)
+
+    end
   end
 
   # GET /general_spends/1

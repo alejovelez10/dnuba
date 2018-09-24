@@ -6,7 +6,6 @@
   </div>
   <div class="col-md-4">
     <%= link_to 'Post', posts_path, class: "btn btn-info" %>
-    <%= link_to 'Nueva Categoria', new_category_path, class: "btn btn-info" %>
   </div>
 </div>
 
@@ -29,7 +28,13 @@
         <span class="glyphicon glyphicon-wrench"></span>
         <% end -%>
 
-        <%= link_to category, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" do %>
+        <%= link_to category, method: :delete, data: {
+              confirm: '¿Estas Seguro?',
+              'confirm-button-text': 'Borrar',
+              'cancel-button-text': 'Cancelar',
+              'confirm-button-color': '#CC0000',
+               text: 'Recuerda que el registro se borrara permanentemente',
+              'image-url': ''}, class: "btn btn-danger" do %>
         <span class="glyphicon glyphicon-trash"></span>
         <% end -%>
         </td>

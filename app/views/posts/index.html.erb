@@ -1,31 +1,38 @@
 <div class="container" style="margin-top: 0px;">
   <p id="notice"><%= notice %></p>
    <div class="row title">
-    <div class="col-md-8">
+    <div class="col-md-1">
       <h2 >Post</h2>
+
     </div>
-  <div class="col-md-4">
+
+    <div class="col-md-4" style="padding-right: 10px; padding-left: 0px; width: 299px; float: right;">
+
+      <%= form_tag posts_path, :method => 'get' do%>
+      
+        <%= text_field_tag :search, params[:search], autocomplete: "off", :requerid => true, placeholder: "Buscar Por Titulo", class: "search"%>
+
+        <%= button_tag class: "btn btn-primary sh3", :title => "Buscar Registros" do %>
+        <i class="fas fa-search" style=""></i>
+        <% end -%>
+
+        <%= link_to posts_path, :title => "Cancelar Filtros", class: "btn btn-danger", id: "btn3" do%>
+          <i class="fas fa-ban"></i>
+        <% end -%> 
+
+      <% end -%>
+
+    </div>
+
+  <div class="col-md-4" style="padding-left: 0px; float: right; padding-right: 5px;">
+
+
     <%= link_to 'Nuevo Post', new_post_path, class: "btn btn-info" %>
-    <%= link_to "Nueva categoria" , new_category_path ,class: "btn btn-info"%>
+    <%= link_to "Nueva categoria" , new_category_path, remote: true ,class: "btn btn-info"%>
   </div>
 </div>
   <br>
 <br>
-<button data-toggle="collapse" data-target="#demo" class="btn btn-info">Filtros</button>
-  <div id="demo" class="collapse">
-    <br>
-      <div class="container-fluid">
-          <%= form_tag posts_path, :method => 'get' do%>
-          <%= text_field_tag :search, params[:search], autocomplete: "off", :requerid => true, placeholder: "Buscar Por Titulo", class: "search", id: "prin"%>
-          <%= submit_tag "Buscar", class: "btn btn-info"%>
-          <%= link_to "Cancelar", posts_path, style: "display: none;", id: "cambio" %>
-          <% end -%>
-        <br>
-      <br>
-    </div>
-    <br>
-  </div>
-  <br>
 <br>
 <div class="container-fluid">
     <% @post.each do |post| %>
@@ -50,7 +57,13 @@
               <span class="glyphicon glyphicon-wrench"></span>
               <% end %>
 
-              <%= link_to post, method: :delete, data: { confirm: 'Estas Seguro?' }, class: "btn btn-danger" do%>
+              <%= link_to post, method: :delete, data: {
+              confirm: '¿Estas Seguro?',
+              'confirm-button-text': 'Borrar',
+              'cancel-button-text': 'Cancelar',
+              'confirm-button-color': '#CC0000',
+               text: 'Recuerda que el registro se borrara permanentemente',
+              'image-url': ''}, class: "btn btn-danger" do%>
               <span class="glyphicon glyphicon-trash"></span>
               <% end -%>
           </div>
@@ -94,8 +107,16 @@
 
   }
 
+
+  #btn3{
+    background: red !important;
+    border-color: red !important;
+    color: #fff !important;
+  }
+
   .search{
     padding: 6px 10px;
+    color: gray !important;
 
   }
 
@@ -118,6 +139,7 @@
     color: red;
    
   }
+
 
   body{
     background-color: #E5E8E8;

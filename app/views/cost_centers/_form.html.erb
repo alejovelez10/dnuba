@@ -1,6 +1,32 @@
-<div class="container" style="padding: 0px;">
-  <div class="col-md-4" style="padding: 0px;">
+<div id="product-modal" class="modal fade">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header" style="padding: 0px;">
+    
+            <div class="container-fluid" style="background-color: black;">
+              <div class="col-md-9">
+                  <% if action_name == "edit"%>
+                    <br>
+                    <h4 class="modal-title">Editar Centro de Costo</h4>
+                    <br>
+                  <%else%>
+                    <br>
+                    <h4 class="modal-title">Crear Centro de Costo</h4>
+                    <br>
+                  <% end -%>
+              </div>
+
+              <div class="col-md-3 text-right " style="padding-top: 10px !important;">
+                <img width="55px" src="https://dnuba.s3.amazonaws.com/uploads/bank_image/achivo/3/Logos%C3%ADmbolo_dnuba__2_-02.png">
+              </div>
+            
+            </div>
+
+        </div>
     <%= form_with(model: cost_center, local: true) do |form| %>
+  <div class="modal-body">
       <% if cost_center.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(cost_center.errors.count, "error") %> prohibited this cost_center from being saved:</h2>
@@ -13,34 +39,71 @@
       <% end %>
       <div class="field">
         <%= form.label "Nombre" %>
-        <%= form.text_field :name, id: :cost_center_name, class: "form form-control" %>
+        <%= form.text_field :name, id: :cost_center_name,:required => true,  class: "form form-control text" %>
       </div>
       <br>
       <div class="field">
         <%= form.label "Codigo" %>
-        <%= form.text_field :code, id: :cost_center_code , class: "form form-control", :maxlength => 5, id: "form2",:required => true %>
+        <%= form.number_field :code, id: :cost_center_code , class: "form form-control", :maxlength => 5, id: "form2"%>
       </div>
       <!--  <div class="field">
         <%= form.label "Presupuesto" %>
         <%= form.number_field :budget, id: :cost_center_budget , class: "form form-control"%>
       </div>-->
       <%=form.hidden_field :user_id, :value => current_user.id%>
-      <br>
-      <div class="actions">
-          <%= form.submit "Guardar" , class: "btn btn-info" %>
       </div>
-    <% end %>
+     <br>
+
+        <div class="modal-footer"">
+
+           <%= form.submit "Guardar", class: "btn btn-info", id: "btn3" %>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button> 
+         <% end -%>
   </div>
 </div>
+
 <style type="text/css">
 
   #form2{
-   width: 30%;
+   width: 20%;
   }
 
   .form{
     border-bottom: 2px solid #3792F8;
   }
+
+#btn3{
+  background-color: #40A2DE;
+  border-color: #40A2DE;
+}
+
+.modal-body{
+  padding-bottom: 0px;
+}
+
+.modal-footer{
+  background-color: black;
+  padding: 10px;
+  border-bottom: 4px solid #40A2DE;
+}
+
+.modal-header{
+  border-top: 4px solid #40A2DE;
+}
+
+.textarea1{
+  height: 127px !important;
+  resize: none;
+}
+
+.text{
+  width: 200px;
+}
+h4{
+  font-size: 22px;
+  color: #40A2DE;
+  text-transform: capitalize;
+}
 
 </style>
 

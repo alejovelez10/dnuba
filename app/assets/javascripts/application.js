@@ -17,6 +17,7 @@
 //= require turbolinks
 //= require ckeditor-jquery
 //= require bootstrap-sprockets
+//= require chosen-jquery
 //= require sweetalert2
 //= require sweet-alert2-rails
 //= require_tree .
@@ -26,10 +27,19 @@
 
 $(document).on('turbolinks:load',function() {
 
-$('.ckeditor').ckeditor({
-  // optional config
+    $('.ckeditor').ckeditor({
+    // optional config
+    });
+
 });
 
-
-
+$('.sh4').chosen(
+    {
+      
+        allow_single_deselect: true,
+        no_results_text: 'No hay resultados',
+        width: '20px',
+        placeholder_text_single: "Merge",
+        placeholder_text_multiple: "Seleccione una varias opciones"
+      
 });
