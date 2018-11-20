@@ -1,4 +1,5 @@
 class Users::AdminController < Devise::RegistrationsController
+before_action :authenticate_user!
 
 	def index
 		@user = User.all

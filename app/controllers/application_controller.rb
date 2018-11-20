@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  
   layout :layout_for_selection
 protected
 
@@ -14,8 +13,7 @@ protected
             else
             	'admin'
         end
-    elsif controller_name == 'home'
-        
+    elsif controller_name == 'home' 
         'page'
 
     	else

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
 
+  resources :experiences
   resources :bank_images
   resources :categories
   resources :posts
@@ -29,7 +30,8 @@ Rails.application.routes.draw do
 
 
   get "contacts", to: "contacts#index"
-
+  get "all_projects", to: "home#all_projects", as: "all_projects"
+  get "show_projects/:id", to: "home#show_projects", as: "show_projects"
   post "cambios/:id", to: "posts#cambios", as: "cambios"
   
   post "create_contacts", to: "contacts#create", as: "create_contacts"

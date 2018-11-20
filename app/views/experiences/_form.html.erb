@@ -1,0 +1,64 @@
+<%= form_with(model: experience, local: true) do |form| %>
+  <% if experience.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(experience.errors.count, "error") %> prohibited this experience from being saved:</h2>
+
+      <ul>
+      <% experience.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="col-md-4 no-padding">
+    <%= form.label :Imagen_Principal %>
+    <%= form.file_field :image1, id: :experience_image1 %>
+  </div>
+
+  <div class="col-md-4 no-padding" >
+    <%= form.label :image2 %>
+    <%= form.file_field :image2, id: :experience_image2 %>
+  </div>
+
+  <div class="col-md-4 no-padding" >
+    <%= form.label :image3 %>
+    <%= form.file_field :image3, id: :experience_image3 %>
+  </div>
+
+  <div class="col-md-4 no-padding" >
+    <%= form.label :image4 %>
+    <%= form.file_field :image4, id: :experience_image4 %>
+  </div>
+
+
+  <div class="field">
+    <%= form.label :Nombre_del_Proyecto %><br>
+    <%= form.text_field :name_proyect, id: :experience_name_proyect %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Cliente %><br>
+    <%= form.text_field :client, id: :experience_client %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Descripcion %><br>
+    <%= form.text_area :description, id: :experience_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Funcinalidad %><br>
+    <%= form.text_area :functionalitie, id: :experience_functionalitie,  :maxlength => 40 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :url_de_la_Pagina %><br>
+    <%= form.url_field :url, id: :experience_url %>
+  </div>
+  <br>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+  <br>
+<% end %>
