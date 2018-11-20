@@ -1,5 +1,6 @@
 class BankImagesController < ApplicationController
   before_action :set_bank_image, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /bank_images
   # GET /bank_images.json

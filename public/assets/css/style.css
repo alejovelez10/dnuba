@@ -1814,29 +1814,6 @@ a.pricing-box-bt {
 	color: #fff;
 }
 
-/* Pagination */
-
-.post-pagination {}
-
-.pagination {
-	margin: 0;
-}
-
-.pagination li a {
-	border-radius: 0 !important;
-	margin-right: 8px;
-	color: #7c7c7c;
-}
-
-.pagination>.active>a,
-.pagination>.active>a:hover,
-.pagination>li>a:hover {
-	color: #fff;
-	background: #02a8f4;
-	border: 1px solid transparent;
-}
-
-
 /* Single Page */
 
 .single-area {

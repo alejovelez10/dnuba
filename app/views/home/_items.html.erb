@@ -1,0 +1,17 @@
+<div class="mix photography development col-sm-6 col-md-4">
+	<div class="item">
+		<img id="imagenes" src="<%= experience.image1 %>" alt="">						
+	<div class="portfolio-caption">
+		<a href="<%= experience.url %>" class="protfolio-link-bt" target="_blank"><i class="fa fa-chain"></i></a>
+	</div>
+	</div><br>
+	<p style="font-size:16px"><strong style="color:#06a7e1">Cliente: </strong> <%= experience.client %>
+		<br>
+        <strong style="color:#06a7e1">Proyecto: </strong><%= experience.functionalitie %>
+	</p>
+
+	<br>
+	<div class="col-md-12 text-center">
+		<%= link_to "Ver Proyecto", experience, class: "btn-show-more  mix photography development", target: "_blank"  %>
+	</div>
+</div>

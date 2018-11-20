@@ -1,12 +1,10 @@
-<p id="notice"><%= notice %></p>
-
 <div class="row title">
   <div class="col-md-8">
       <h2 >CONCTACTOS</h2>
   </div>
 </div>
 
-
+<% if @contact.any? %>
  <table class="table table-striped">
   <thead>
     <tr>
@@ -39,3 +37,9 @@
 	<% end -%>
   </tbody>
 </table>
+<% else %>
+<br>
+<div class="jumbotron">
+    <h3 align="center">Todavia No Nos han contactado</h3>
+</div>
+<% end %>
