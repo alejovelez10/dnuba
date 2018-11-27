@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
-protect_from_forgery  with: :exception
-layout :layout_for_selection
+  protect_from_forgery with: :exception
+  layout :layout_for_selection
 protected
 
   def layout_for_selection
