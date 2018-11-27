@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
  protect_from_forgery  with: :exception
- skip_before_action :verify_authenticity_token
- layout :layout_for_selection
+layout :layout_for_selection
 protected
 
   def layout_for_selection
