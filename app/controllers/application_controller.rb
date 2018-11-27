@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
-protect_from_forgery with: :null_session
-
-    skip_before_action :verify_authenticity_token, if: -> { controller_name == 'admin' }
+  protect_from_forgery with: :exception
+  skip_before_action :verify_authenticity_token, if: -> { controller_name == 'admin' }
 
   layout :layout_for_selection
 
