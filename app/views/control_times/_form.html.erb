@@ -1,0 +1,143 @@
+<div id="product-modal" class="modal fade">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header" style="padding: 0px;">
+    
+            <div class="container-fluid" style="background-color: black;">
+              <div class="col-md-9">
+                  <% if action_name == "edit"%>
+                    <br>
+                    <h4 class="modal-title">Editar Control de Tiempo</h4>
+                    <br>
+                  <%else%>
+                    <br>
+                    <h4 class="modal-title">Crear Control de Tiempo</h4>
+                    <br>
+                  <% end -%>
+              </div>
+
+              <div class="col-md-3 text-right " style="padding-top: 10px !important; padding: 0px;">
+                <img width="55px" src="https://dnuba.s3.amazonaws.com/uploads/bank_image/achivo/3/Logos%C3%ADmbolo_dnuba__2_-02.png">
+              </div>
+            
+            </div>
+
+        </div>
+
+<%= nested_form_for(@control_time, local: true) do |form| %>
+<div class="row">
+ <div class="modal-body">
+  <% if control_time.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(control_time.errors.count, "error") %> prohibited this control_time from being saved:</h2>
+
+      <ul>
+      <% control_time.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="col-md-5">
+    <%= form.label "Para el Empleado" %>
+    <%= form.select :user_id, get_usuarios.map { |u| [u.email, u.id] },{ include_blank: false },{ class: 'form form-control'  }%>
+    <br>
+  </div>
+
+  <div class="col-md-12">
+    <%= form.label "Observaciones" %>
+    <%= form.text_area :observations, id: :control_time_observations,:rows => 7,  :cols =>25, class: "form form-control"%>
+    <br>
+  </div>
+
+  <div class="col-md-12">
+    <%= form.label "Fecha de Registro" %>
+    <%= form.date_field :registration_date, id: :control_time_registration_date, class: "form form-control" %>
+    <br>
+  </div>
+  <div class="padre">
+    <%= form.fields_for :cost_of_hours_center do |file|  %>
+    <div class="col-md-12 no-padding">
+
+      <div class="col-md-6">
+        <label>Horas</label>
+          <div class="input-group">
+              <span class="input-group-btn">
+                <%= file.link_to_remove class: "btn btn-danger" do %>
+                  <i class="fa fa-trash" aria-hidden="true"></i>
+                <% end %>
+              </span>
+              <%= file.number_field :hours, class: "form form-control" %>
+          </div>
+          <br>
+      </div>
+      <div class="col-md-6">
+          <label>En el Proyecto</label>
+          <%= file.select :cost_center_id, get_costo_de_centro.map { |u| [u.name, u.id] },{ include_blank: false },{ class: 'form form-control'  }%>
+          <br>
+      </div>
+
+        <div class="col-md-4 no-padding" style="display: none;">
+          <%= form.label "Para el Empleado" %>
+          <%= form.select :user_id, get_usuarios.map { |u| [u.email, u.id] },{ include_blank: false },{ class: 'form form-control'  }%>
+          <br>
+        </div>
+
+      </div>
+    <% end %>
+  </div>
+
+  <div class="col-md-12">
+    <%= form.link_to_add :cost_of_hours_center, :class => 'btn btn-info' do  %>
+    Agregar <i class="fas fa-plus-circle"></i>
+    <% end %>
+  </div>
+  </div> 
+      </div>
+        <br>
+        <div class="modal-footer">
+           <%= form.submit "Guardar", class: "btn btn-info", id: "btn3" %>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button> 
+       </div>
+  </div>
+</div>
+
+<% end %>
+
+  <div class="col-md-12" style="padding: 0px;">
+  </div>
+
+<style type="text/css" media="screen">
+
+  .modal-header .container-fluid h4{
+    color: #fff;
+  }
+
+  .modal-header .container-fluid{
+    border: 2px solid #09a6e1;
+    border-radius: 4px;
+  }
+
+  .modal-footer{
+    background: black;
+  }
+
+  #product-modal{
+    padding-left: 0px !important;
+  }
+
+  .no-padding{
+    padding-left: 0px;
+  }
+
+  .padding{
+    padding: 0px;
+  }
+
+
+</style>
+
+

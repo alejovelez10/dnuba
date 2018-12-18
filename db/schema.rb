@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180913223511) do
+ActiveRecord::Schema.define(version: 20181217223646) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,15 @@ ActiveRecord::Schema.define(version: 20180913223511) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "control_times", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "hours"
+    t.text "observations"
+    t.date "registration_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "cost_centers", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -49,6 +58,31 @@ ActiveRecord::Schema.define(version: 20180913223511) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "control_time_id"
+  end
+
+  create_table "cost_of_hours_centers", force: :cascade do |t|
+    t.integer "cost_center_id"
+    t.integer "user_id"
+    t.integer "hours"
+    t.date "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "control_time_id"
+  end
+
+  create_table "experiences", force: :cascade do |t|
+    t.string "image1"
+    t.string "image2"
+    t.string "image3"
+    t.string "image4"
+    t.string "client"
+    t.text "description"
+    t.text "functionalitie"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "url"
+    t.string "name_proyect"
   end
 
   create_table "general_spends", force: :cascade do |t|

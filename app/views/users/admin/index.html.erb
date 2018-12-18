@@ -22,9 +22,15 @@
               <td><%= link_to editar_user_path(user), class: "btn btn-info" do %>
                 <i class="fas fa-pencil-alt"></i>
                 <% end -%>
-              <%= link_to destroy_user_path(user), method: :delete, data: { confirm: 'Estas Seguro?' }, class: "btn btn-danger" do %>
-              <i class="fas fa-trash-alt "></i>
-              <% end -%>
+              <%= link_to destroy_user_path(user),method: :delete, data: {
+                confirm: '¿Estas Seguro?',
+                'confirm-button-text': 'Borrar',
+                'cancel-button-text': 'Cancelar',
+                'confirm-button-color': '#CC0000',
+                 text: 'Recuerda que el registro se borrara permanentemente',
+                'image-url': ''}, class: "btn btn-danger" do %>
+          <i class="fas fa-trash-alt "></i>
+          <% end -%>
             </td>
             </tr>
           <% end %>

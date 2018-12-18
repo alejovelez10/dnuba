@@ -6,6 +6,16 @@ class BankImagesController < ApplicationController
   def index
     @bank_images = BankImage.all
   end
+  
+  def not_found
+    raise ActionController::RoutingError.new('Not Found')
+  rescue
+    render_404
+  end
+
+  def render_404
+    render file: "#{Rails.root}/public/404", :layout => false, :status => :not_found
+  end
 
   # GET /bank_images/1
   # GET /bank_images/1.json
@@ -64,7 +74,7 @@ class BankImagesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_bank_image
-      @bank_image = BankImage.find(params[:id])
+      @bank_image = BankImage.find(params[:id]) rescue not_found
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

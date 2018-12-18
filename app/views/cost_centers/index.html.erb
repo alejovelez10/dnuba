@@ -20,19 +20,21 @@
       <th>Ingresos</th>
       <th>Gastos</th>
       <th>Diferencia</th>
+      <th>Total de horas Trabajadas</th>
 
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @cost_centers.each do |cost_center| %>
+    <% @cost_center.each do |cost_center| %>
       <tr>
         <td><%= cost_center.name %></td>
         <td><%= cost_center.code %></td>
         <td><%= number_to_currency(cost_center.incomes.sum(:value)).chomp(".00") %></td>
         <td><%= number_to_currency(cost_center.general_spends.sum(:value)).chomp(".00") %></td>
         <td><%= number_to_currency(cost_center.incomes.sum(:value) - cost_center.general_spends.sum(:value)).chomp(".00") %></td>
+        <td><%= @total %></td>
 
         <td><%= link_to cost_center, class: "btn btn-info" do %>
           <i class="far fa-eye"></i>

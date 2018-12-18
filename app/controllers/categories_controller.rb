@@ -8,6 +8,16 @@ class CategoriesController < ApplicationController
     @categories = Category.all
   end
 
+  def not_found
+    raise ActionController::RoutingError.new('Not Found')
+  rescue
+    render_404
+  end
+
+  def render_404
+    render file: "#{Rails.root}/public/404", :layout => false, :status => :not_found
+  end
+
   # GET /categories/1
   # GET /categories/1.json
   def show
@@ -65,7 +75,7 @@ class CategoriesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_category
-      @category = Category.find(params[:id])
+      @category = Category.find(params[:id]) rescue not_found
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

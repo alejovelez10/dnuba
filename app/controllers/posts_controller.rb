@@ -14,6 +14,16 @@ class PostsController < ApplicationController
   def show
   end
 
+  def not_found
+    raise ActionController::RoutingError.new('Not Found')
+  rescue
+    render_404
+  end
+
+  def render_404
+    render file: "#{Rails.root}/public/404", :layout => false, :status => :not_found
+  end
+
   # GET /posts/new
   def new
     @post = Post.new
@@ -87,7 +97,7 @@ class PostsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
-      @post = Post.find(params[:id])
+      @post = Post.find(params[:id]) rescue not_found
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

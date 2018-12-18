@@ -1,5 +1,4 @@
 <div class="container" style="margin-top: 0px;">
-  <p id="notice"><%= notice %></p>
    <div class="row title">
     <div class="col-md-1">
       <h2 >Post</h2>
@@ -32,8 +31,6 @@
   </div>
 </div>
   <br>
-<br>
-<br>
 <div class="container-fluid">
     <% @post.each do |post| %>
       <ul class="list-group">
@@ -86,9 +83,9 @@
     <% end %>
   </div>
 
- <div class="pagination">
+ <div class="col-md-12 paginate text-center title-table1">
         <%= will_paginate @post, renderer: BootstrapPagination::Rails, previous_label: "Anterior", next_label: "Siguiente", inner_window: 1, outer_window: 0 %>
-      </div>
+  </div>
 
 <br>
   
