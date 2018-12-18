@@ -41,6 +41,11 @@
        <% end -%>
      </li>
 
+      <li class="<%= @admin[7]%>" ><%= link_to control_times_path , class: "" do%>
+       <i class="fas fa-user-clock" style="margin-right: 3px;"></i> Centro de Horas 
+       <% end -%>
+     </li>
+
      <li class="<%= @admin[3]%>" ><%= link_to  incomes_path , class: "" do%>
       <i class="far fa-credit-card" style="margin-right: 3px;"></i> Ingresos
        <% end -%>
@@ -73,7 +78,7 @@
 
      </li>
 
-     <li class="has-sub"><a style="user-select: none;">
+     <li class="<%= @admin[6]%> has-sub"><a style="user-select: none;">
         <span class = "color-gray hidden-xs hidden-sm"><i class="fa fa-arrow-down" style="margin-right: 3px;"></i> Conocimiento</span></a>
 
           <ul style="max-width: 155px;">

@@ -5,7 +5,18 @@ class CostCentersController < ApplicationController
   # GET /cost_centers
   # GET /cost_centers.json
   def index
-    @cost_centers = CostCenter.all
+    @cost_center = CostCenter.all
+    @total = CostOfHoursCenter.where(hours: @cost_center.ids).count
+  end
+
+  def not_found
+    raise ActionController::RoutingError.new('Not Found')
+  rescue
+    render_404
+  end
+
+  def render_404
+    render file: "#{Rails.root}/public/404", :layout => false, :status => :not_found
   end
 
   # GET /cost_centers/1
@@ -65,7 +76,7 @@ class CostCentersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_cost_center
-      @cost_center = CostCenter.find(params[:id])
+      @cost_center = CostCenter.find(params[:id]) rescue not_found
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

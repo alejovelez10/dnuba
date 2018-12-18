@@ -1,0 +1,27 @@
+# == Schema Information
+#
+# Table name: cost_of_hours_centers
+#
+#  id              :integer          not null, primary key
+#  cost_center_id  :integer
+#  user_id         :integer
+#  hours           :integer
+#  date            :date
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  control_time_id :integer
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cost_center_id: 1
+  user_id: 1
+  hours: 1
+  date: 2018-12-17
+
+two:
+  cost_center_id: 1
+  user_id: 1
+  hours: 1
+  date: 2018-12-17

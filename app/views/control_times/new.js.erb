@@ -1,0 +1,4 @@
+	$('<%= j render "form", control_time: @control_time %>').on('hidden.bs.modal', function (e) {
+	$(this).remove();
+	$('.modal-backdrop').remove();
+	}).modal();

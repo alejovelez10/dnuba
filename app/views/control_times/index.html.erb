@@ -1,0 +1,117 @@
+
+<div class="container">
+  <div class="row title">
+    <div class="col-md-5">
+      <h2 >Control de Tiempo</h2>
+    </div>
+
+  <div class="col-md-4" style="padding-left: 0px; float: right; padding-right: 5px;">
+    <%= link_to 'Nuevo Control de Tiempo', new_control_time_path, remote: true, class: "btn btn-info" %>
+  </div>
+
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Empleado</th>
+      <th>Horas</th>
+      <th>Observaciones</th>
+      <th>Fecha del Registro</th>
+      <th colspan="3"></th>
+      <th><%= @total %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @control_times.each do |control_time| %>
+      <tr>
+        <td><%= control_time.user.email %></td>
+        <td><%= CostOfHoursCenter.where(control_time_id: control_time.id).sum("hours") %></td>
+        <td><%= control_time.observations %></td>
+        <td><%= get_date(control_time.registration_date) %></td>
+
+        <td>
+          <%= link_to edit_control_time_path(control_time), remote: true, class: "btn btn-info" do %>
+          <i class="fas fa-pencil-alt"></i>
+          <% end -%>
+
+          <button type="button" class="btn btn-info" data-toggle="modal" data-target="#info<%= control_time.id%>">
+            <i class="fas fa-question-circle"></i>
+          </button>
+
+          <%= link_to control_time,method: :delete, data: {
+                confirm: '¿Estas Seguro?',
+                'confirm-button-text': 'Borrar',
+                'cancel-button-text': 'Cancelar',
+                'confirm-button-color': '#CC0000',
+                 text: 'Recuerda que el registro se borrara permanentemente',
+                'image-url': ''}, class: "btn btn-danger" do %>
+          <i class="fas fa-trash-alt "></i>
+          <% end -%>
+
+        </td>
+
+      </tr>
+
+
+  <!-- Modal -->
+        <div class="modal fade" id="info<%= control_time.id%>" role="dialog">
+          <div class="modal-dialog">
+          
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header encabezado">
+                  <div class="col-md-3 text-right left" style="padding-top: 10px !important; padding: 0px;">
+                    <img width="55px" src="https://dnuba.s3.amazonaws.com/uploads/bank_image/achivo/3/Logos%C3%ADmbolo_dnuba__2_-02.png">
+                  </div>
+              </div>
+              <div class="modal-body">
+                <% control_time.cost_of_hours_center.each do |empleado|%>
+
+                <div class="row">
+
+                   <div class="col-md-3">
+                    <strong>Horas</strong>
+                      <p><%= empleado.hours if empleado.hours  %></p>  
+                   </div>
+
+
+                   <div class="col-md-3">
+                    <strong>Para el Empleado</strong>
+                      <p><%= empleado.user.email if empleado.user %></p>  
+                   </div>
+                 </div>
+
+                <% end -%>
+              </div>
+              <div class="modal-footer bajo">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+    <% end %>
+  </tbody>
+</table>
+</div>
+<br>
+
+<style type="text/css" media="screen">
+  .left{
+    float: right;
+  }
+
+  .encabezado{
+    background: black;
+    border: 1px solid #015271;
+    padding: 4px;
+
+  }
+
+  .bajo{
+    background: black;
+  }
+
+</style>

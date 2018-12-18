@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @control_time.user_id %>
+</p>
+
+<p>
+  <strong>Hours:</strong>
+  <%= @control_time.hours %>
+</p>
+
+<p>
+  <strong>Observations:</strong>
+  <%= @control_time.observations %>
+</p>
+
+<p>
+  <strong>Registration date:</strong>
+  <%= @control_time.registration_date %>
+</p>
+
+<%= link_to 'Edit', edit_control_time_path(@control_time) %> |
+<%= link_to 'Back', control_times_path %>

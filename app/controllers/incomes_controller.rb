@@ -8,6 +8,16 @@ class IncomesController < ApplicationController
     @incomes = Income.all
   end
 
+  def not_found
+    raise ActionController::RoutingError.new('Not Found')
+  rescue
+    render_404
+  end
+
+  def render_404
+    render file: "#{Rails.root}/public/404", :layout => false, :status => :not_found
+  end
+
   # GET /incomes/1
   # GET /incomes/1.json
   def show
@@ -65,7 +75,7 @@ class IncomesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_income
-      @income = Income.find(params[:id])
+      @income = Income.find(params[:id]) rescue not_found
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

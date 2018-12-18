@@ -1,6 +1,5 @@
 <div class="container" style="margin-top: 5%;">
-  	<div class="col-md-8 col-md-offset-2">
-	<p id="notice"><%= notice %></p>
+  	<div class="col-md-8 col-md-offset-2 marco"">
 
 	<% unless @post.user.nil? %>
 	  <ul class="list-group">
@@ -9,12 +8,10 @@
 		  <br>
 		  <%= @post.name %>
 		</p>
-
-		<p>
-		  <strong>Descripcion:</strong><br>
-		  <br>
-		  <%== @post.body %>
-		</p>
+			<p>
+			  <strong>Descripcion:</strong><br>
+			  <%== @post.body %>
+			</p>
 
 		<p>
 		  <strong>Escrito por:</strong><br>
@@ -35,11 +32,19 @@
 	<%= link_to 'Volver', posts_path, class: "btn btn-info" %>
 
   </div>
+  <br>
 </div>
 
 <style type="text/css">
-	  body{
+
+  body{
     background-color: #E5E8E8;
+  }
+
+  .marco{
+  	background: #fff;
+  	padding: 15px;
+  	border-radius: 4px;
   }
 
 </style>
