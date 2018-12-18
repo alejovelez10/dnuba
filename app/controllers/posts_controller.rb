@@ -6,7 +6,11 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @post = Post.search(params[:search]).paginate(:page => params[:page], :per_page => 6)
+    if params[:search] || params[:search2]
+      @post = Post.search(params[:search],params[:search2]).paginate(:page => params[:page], :per_page => 6)
+    else
+      @post = Post.paginate(:page => params[:page], :per_page => 6)
+    end
   end
 
   # GET /posts/1

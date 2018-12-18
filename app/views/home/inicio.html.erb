@@ -161,6 +161,7 @@
 				</div>
 			</div>
 		</section>
+
 		<!-- /End Our Service Area -->
 		<!--Start counter Area -->
 		<section id="conuter" class="complete-project-conuter">
@@ -169,7 +170,7 @@
 					<div class="col-xs-12 col-sm-4">
 						<div class="single-counter">
 							<div class="counter-icon">
-								<i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+								<i class="far fa-thumbs-up" aria-hidden="true"></i>
 							</div>
 							<div class="counter-data">
 								<h2 class="counter">10</h2>
@@ -230,98 +231,17 @@
 				</div>
 				<div class="portfolio-inner">
 					<div class="row portfolio-posts">
-						<div class="mix photography development col-sm-6 col-md-4">
-							<div class="item">
-							
-							<img src="https://mybc1.s3.amazonaws.com/uploads/rseguimiento/evidencia/170/Screenshot_from_2018-04-25_23-52-06.png" alt="">
-								
-								<div class="portfolio-caption">
-									<a href="http://sigmaip.co" class="protfolio-link-bt"><i class="fa fa-chain"></i></a>
-									<!--<a href="assets/images/portfolio/portfolio-1.jpg" class="protfolio-link-bt portfolio-img"><i class="fa fa-plus"></i></a>-->
-									<h3></h3>
-								</div>
-							</div><br>
-							<p style="font-size:16px"><strong style="color:#06a7e1">Cliente: </strong> Sigma Ingernieria y Proyectos 
-							<br>
-                            <strong style="color:#06a7e1">Proyecto: </strong>Portal Web
-							</p>
-						
-						</div>
-						<div class="mix webdesign development col-sm-6 col-md-4">
-							<div class="item">
-								<img src="https://mybc1.s3.amazonaws.com/uploads/rseguimiento/evidencia/171/Screenshot_from_2018-04-25_23-58-17.png" alt="">
-								<div class="portfolio-caption">
-									<a href="http://psicloud.co/" class="protfolio-link-bt"><i class="fa fa-chain"></i></a>
-									<!--<a href="assets/images/portfolio/portfolio-1.jpg" class="protfolio-link-bt portfolio-img"><i class="fa fa-plus"></i></a>-->
-									<h3></h3>
-								</div>
-							</div><br>
-							<p style="font-size:16px"><strong style="color:#06a7e1">Cliente: </strong> Psicloud 
-							<br>
-                            <strong style="color:#06a7e1">Proyecto: </strong>Software de Historia Clinica para Psicologos
-							</p>
-						</div>
-						<div class="mix webdesign development col-sm-6 col-md-4">
-							<div class="item" style="border: 1px solid #d9d9d9;">
-								<img src="https://mybc1.s3.amazonaws.com/uploads/rseguimiento/evidencia/216/imagenmejoraapp.png" alt="">
-								<div class="portfolio-caption">
-									<a href="https://mejoraapp.com/" class="protfolio-link-bt"><i class="fa fa-chain"></i></a>
-									<!--<a href="assets/images/portfolio/portfolio-1.jpg" class="protfolio-link-bt portfolio-img"><i class="fa fa-plus"></i></a>-->
-									<h3></h3>
-								</div>
-							</div>
-							<br>
-							<p style="font-size:16px"><strong style="color:#06a7e1">Cliente: </strong> MejoraApp 
-							<br>
-                            <strong style="color:#06a7e1">Proyecto: </strong>Software para gestion de mejora continua
-							</p>
-						</div>
-						<div class="mix development development col-sm-6 col-md-4">
-							<div class="item">
-								<img src="https://mybc1.s3.amazonaws.com/uploads/rseguimiento/evidencia/217/imagenmag.png" alt="">
-								<div class="portfolio-caption">
-									<a href="http://rccreports.herokuapp.com/users/sign_in" class="protfolio-link-bt"><i class="fa fa-chain"></i></a>
-									<!--<a href="assets/images/portfolio/portfolio-1.jpg" class="protfolio-link-bt portfolio-img"><i class="fa fa-plus"></i></a>-->
-									<h3></h3>
-								</div>
-							</div>
-							<br>
-							<p style="font-size:16px"><strong style="color:#06a7e1">Cliente: </strong> MAG Textiles 
-							<br>
-                            <strong style="color:#06a7e1">Proyecto: </strong>Software para el control de reclamos y seguimiento a las acciones correctivas del proceso de ventas.
-							</p>
-						</div>
-						<div class="mix webdesign development col-sm-6 col-md-4">
-							<div class="item">
-								<img src="https://mybc1.s3.amazonaws.com/uploads/rseguimiento/evidencia/218/imageserv.png" alt="">
-								<div class="portfolio-caption">
-									<a href="https://www.zoho.com/creator/" class="protfolio-link-bt"><i class="fa fa-chain"></i></a>
-									
-									<h3></h3>
-								</div>
-							</div>
-							<br>
-							<p style="font-size:16px"><strong style="color:#06a7e1">Cliente: </strong>Servidual Ltda 
-							<br>
-                            <strong style="color:#06a7e1">Proyecto: </strong>Software ERP para la Gestion de todos los procesos de la compañia
-							</p>
-						</div>
-						<div class="mix development development col-sm-6 col-md-4">
-							<div class="item">
-								<img src="https://mybc1.s3.amazonaws.com/uploads/rseguimiento/evidencia/219/sigmafile.png" alt="">
-								<div class="portfolio-caption">
-									<a href="https://sigmaip.co/file_systems" class="protfolio-link-bt"><i class="fa fa-chain"></i></a>
-									
-									<h3></h3>
-								</div>
-							</div>
-							<br>
-							<p style="font-size:16px"><strong style="color:#06a7e1">Cliente: </strong> Sigma Ingernieria y Proyectos 
-							<br>
-                            <strong style="color:#06a7e1">Proyecto: </strong>Software para Gestión de Documental.
-							</p>
-						</div>
+						<% @experiences.last(6).each do |experience| %>
+							<%= render "items", experience: experience %>
+						<% end -%>
 					</div>
+
+				<% if @experiences.count > 6 %>
+					<div class = "col-md-3 col-md-offset-5 margin-top text-center mix photography development" style="margin-left: 38%;">
+					 	<%= link_to "Ver Mas", all_projects_path, class: "btn-show-more", target: "_blank"  %>
+					</div>
+				<% end -%>
+
 				</div>
 			</div>
 		</section>
@@ -410,14 +330,18 @@
 						</div>
 					</div>
 				</div>
+
 				<div class="row">
 					<div class="col-md-4">
-						<div class="footer-single-contact">
-						
+						<div class="footer-single-contact">						
 							<div class="address-single-contact">
 								<h6>Servicio al Cliente</h6>
 								<p>Telefono : +57 317 4411859</p>
 								<p>email : info@dnuba.com</p>
+								<p><%= link_to "https://api.whatsapp.com/send?phone=573174411859&text=Me%20gustaria%20conocer%20su%20portafolio%20de%20servicio%20y%20poder%20agendar%20una%20cita%20con%20ustedes", target: "_blank", id: "icono" do %> 
+									<i id="whatsapp" class="fab fa-whatsapp"></i> Whatsapp
+									<% end -%>
+								</p>
 							</div>
 						</div>
 					</div>
@@ -502,4 +426,27 @@
   {
   	    border: 1px solid #c1c1c1;
   }
-		</style>  
+
+  #whatsapp{
+  	color: #1ebea5;
+  	font-size: 20px;
+  }
+
+  #icono{
+  	color: #fff;
+  }
+
+
+	.btn-show-more {
+	    background-color: #02a8f4;
+	    padding: 3px 15px 3px 15px;
+	    color: #fff;
+	}
+
+	#imagenes{
+		height: 273px;
+	}
+
+
+</style>  
+  

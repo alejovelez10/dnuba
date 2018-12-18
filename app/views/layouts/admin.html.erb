@@ -56,10 +56,26 @@
      <% end -%>       
      </li>
 
-     <li class="<%= @admin[5]%>" ><%= link_to usuarios_path  , class: "" do%>
-      <i class="fa fa-users" style="margin-right: 3px;"></i> Usuarios
-     <% end -%>
-       
+      <li class="has-sub"><a style="user-select: none;">
+        <span class = "color-gray hidden-xs hidden-sm"><i class="fa fa-arrow-down" style="margin-right: 3px;"></i> Proyectos </span></a>
+
+          <ul style="max-width: 155px;">
+            <li class="<%= @admin[5]%>"><%= link_to  usuarios_path do%>
+              <i class="fa fa-users"  style="margin-right: 3px;"></i> Usuarios
+              <% end -%>
+            </li>
+
+            <li><%= link_to  experiences_path do%>
+              <i class="fas fa-image" style="margin-right: 3px;" ></i> Experiencia
+              <% end -%>
+            </li>
+
+            <li><%= link_to  categories_path do%>
+              <i class="fa fa-list" style="margin-right: 3px;" ></i> Servicios
+              <% end -%>
+            </li>
+          </ul>
+
      </li>
 
      <li class="<%= @admin[6]%> has-sub"><a style="user-select: none;">

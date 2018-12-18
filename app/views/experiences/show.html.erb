@@ -1,0 +1,219 @@
+    
+<!-- Start Preloader Area-->
+
+    <!--/End Preloader Area-->
+    <!-- Navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav-collapse" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index-slider.html"><img width="300px" class="logo_dnuba" src="https://dnuba.s3.amazonaws.com/uploads/bank_image/achivo/64/snubamejoraapp.png" alt=""></a>
+        </div>
+        <div class="collapse navbar-collapse" id="main-nav-collapse">
+          <ul class="nav navbar-nav navbar-right">
+              <li><%= link_to "INICIO", root_path, target: "_blank" ,class: "active smoth-scroll" %></li>
+            <li><a class="smoth-scroll" href="#about-us">QUIENES SOMOS</a></li>
+            <li><a class="smoth-scroll" href="#special">SERVICIOS</a></li>
+            <li><a class="smoth-scroll" href="#our-portfolio">NUESTRO TRABAJO</a></li>
+            <li><a class="smoth-scroll" href="#contacts">CONTACTENOS</a></li>
+            <li><%= link_to "ADMINISTRAR", cost_centers_path, target: "_blank" ,class: "smoth-scroll" %></li>
+
+        </div>
+      </div>
+    </nav>
+    <br><br>
+    <section id="our-portfolio" class="portfolio section-padding">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="section-title wow fadeInDown">
+              <h2><span><%= @experience.name_proyect %></span ></h2>
+              <div class="border-line">
+                <span class="border-box"></span>
+              </div>
+              <!--<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text</p>-->
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <!--<div class="col-xs-12">
+            <ul class="portfolio">
+              <li class="filter" data-filter="all">all Project</li>
+              <li class="filter" data-filter=".webdesign">webdesign</li>
+              <li class="filter" data-filter=".development">development</li>
+              <li class="filter" data-filter=".photography">photography</li>
+            </ul>
+          </div>-->
+        </div>
+        <div class="portfolio-inner">
+          <div class="row portfolio-posts">
+
+            <div class="col-md-5 col-md-offset-1" style="padding-left: 0px;">
+                <img src="<%= @experience.image1 %>">
+            </div>
+
+            <div class="col-md-5">
+              <strong>Description:</strong>
+                <p><%= @experience.description %></p>
+            </div>
+
+            <div class="col-md-5 margin-top">
+              <strong>Funcionalidad:</strong>
+                <p><%= @experience.functionalitie %></p>
+            </div>
+
+            <div class="col-md-12 col-md-offset-1" style="margin-top: 30px; padding-left: 0px;">
+              <h3>Pagina</h3><br>
+              <a href="<%= @experience.url %>">Visitar Pagina</a>
+            </div>
+
+            <!--
+              <p>
+                <strong>Image1:</strong>
+                <%= @experience.image1 %>
+              </p>
+
+              <p>
+                <strong>Image2:</strong>
+                <%= @experience.image2 %>
+              </p>
+
+              <p>
+                <strong>Image3:</strong>
+                <%= @experience.image3 %>
+              </p>
+
+              <p>
+                <strong>Image4:</strong>
+                <%= @experience.image4 %>
+              </p>
+
+              <p>
+                <strong>Client:</strong>
+                <%= @experience.client %>
+              </p>
+
+              <p>
+                <strong>Functionalitie:</strong>
+                <%= @experience.functionalitie %>
+              </p>
+            -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacts" class="section-padding">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="section-title wow fadeInDown">
+              <h2>Contactenos </h2>
+              <div class="border-line">
+                <span class="border-box"></span>
+              </div>
+              <p>Si quires saber mas sobre nosotros o tienes una idea y quires desarrollarla, no dudes en contactarnos</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4">
+            <div class="footer-single-contact">           
+              <div class="address-single-contact">
+                <h6>Servicio al Cliente</h6>
+                <p>Telefono : +57 317 4411859</p>
+                <p>email : info@dnuba.com</p>
+                <p><%= link_to "https://api.whatsapp.com/send?phone=573174411859&text=Me%20gustaria%20conocer%20su%20portafolio%20de%20servicio%20y%20poder%20agendar%20una%20cita%20con%20ustedes", target: "_blank", id: "icono" do %> 
+                  <i id="whatsapp" class="fab fa-whatsapp"></i> Whatsapp
+                  <% end -%>
+                </p>                
+              </div>
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div class="footer-single-contact">
+              <div class="contact-form">
+                  
+
+                             <%=form_tag create_contacts_path, remote: true, method: :post,  authenticity_token: true%>                               
+
+                  <input name="utf8" type="hidden" value="✓">
+                  <div class="form-group col-md-6">
+                  <input type="text" name="name" id="name" class="form-control pl-icon" placeholder="&#xf2c0; Nombre" required="">
+                  </div>
+                  <div class="form-group col-md-6">         
+                  <input type="text" name="email" id="email" class="form-control pl-icon" placeholder="&#xf003; Email" required=""> 
+                    </div>
+                    <div class="form-group col-md-12">
+                  <input type="text" name="subject" id="subject" class="form-control pl-icon" placeholder="&#xf040; Asunto" required="">
+                    </div>
+                    <div class="form-group col-md-12">
+                    <textarea name="message" id="message" class="form-control pl-icon" placeholder="&#xf0e5;  Mensaje" required=""></textarea>
+                    </div>
+
+                    <div class="col-md-12">
+                    <div class="actions wow fadeIn" data-wow-delay=".4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeIn;">
+                      <input type="submit" name="commit" value="Enviar Mensaje" class="btn btn-lg contact-btn" id="submitButton" data-disable-with="Enviar Mensage">
+                    </div>
+                    <br>
+                  </div>
+                    
+                  <div class="col-md-5">
+                    <div class="alert alert-info" style="display: none;">
+                      <p>El Mensaje se envio con <b>exito!</b></p>
+                    </div>  
+                  </div>
+
+                  </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /End Footer top Area -->
+    <!-- footer Area -->
+    <footer id="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="footer-buttom">
+              <p>© 2018 <a href="http://dnuba.com">dnuba</a> , Todos los derechos reservados.</p>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <style type="text/css">
+      .navbar-default .navbar-nav>li>a{
+        color: #00afec;
+      }
+
+      .sticky.navbar-default {
+          background-color: #e6e6e6 !important;
+          padding: 10px 0;
+      }
+
+      .margin-top{
+        margin-top: 10px;
+      }
+
+      #whatsapp{
+        color: #1ebea5;
+        font-size: 20px;
+      }
+
+      #icono{
+        color: #fff;
+      }
+
+    </style>
+

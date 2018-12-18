@@ -48,7 +48,3 @@ a:hover.btn.btn-normal-border, a:hover.btn.btn-color, .border-style, .special-it
 .widget.categories ul li a:hover, .widget.categories ul li a:hover:before,.post-meta a:hover{
 	color:#3471cc;
 }
-
-.pagination > .active > a, .pagination > .active > a:focus, .pagination > .active > a:hover, .pagination > .active > span, .pagination > .active > span:focus, .pagination > .active > span:hover{
-	border-color: #3471cc;
-}

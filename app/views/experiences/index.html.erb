@@ -1,0 +1,65 @@
+<div class="row title">
+
+  <div class="col-md-8">
+      <h2 >Nuestros Proyectos</h2>
+  </div>
+
+  <div class="col-md-4">
+      <%= link_to 'Crear', new_experience_path, class: "btn btn-primary" %>
+  </div>
+
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Imagen #1</th>
+      <th>Imagen #2</th>
+      <th>Imagen #3</th>
+      <th>Imagen #4</th>
+      <th>Cliente</th>
+      <th>Descripcion</th>
+      <th>Funcionalidad</th>
+      <th style="text-align: center;">Acciones</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @experiences.each do |experience| %>
+      <tr>
+        <td><%= image_tag(experience.image1_url(:medium)) unless experience.image1.blank? %></td>
+        <td><%= image_tag(experience.image2_url(:medium)) unless experience.image2.blank? %></td>
+        <td><%= image_tag(experience.image3_url(:medium)) unless experience.image3.blank? %></td>
+        <td><%= image_tag(experience.image4_url(:medium)) unless experience.image4.blank? %></td>
+        <td><%= experience.client %></td>
+        <td><%= experience.description %></td>
+        <td><%= experience.functionalitie %></td>
+        <td style="width: 144px;">
+
+          <%= link_to  experience , class: "btn btn-info" do %>
+            <i class="far fa-eye"></i>
+          <% end -%>
+
+          <%= link_to edit_experience_path(experience) , class: "btn btn-info" do %>
+            <i class="fas fa-pencil-alt"></i>
+          <% end -%>
+
+          <%= link_to experience,method: :delete, data: {
+                confirm: '¿Estas Seguro?',
+                'confirm-button-text': 'Borrar',
+                'cancel-button-text': 'Cancelar',
+                'confirm-button-color': '#CC0000',
+                 text: 'Recuerda que el registro se borrara permanentemente',
+                'image-url': ''}, class: "btn btn-danger" do %>
+          <i class="fas fa-trash-alt "></i>
+          <% end -%>
+
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+  <div class = "col-md-12 paginate text-center title-table1">
+    <%= will_paginate @experiences, renderer: BootstrapPagination::Rails, previous_label: "Anterior", next_label: "Siguiente", inner_window: 1, outer_window: 0 %>
+  </div>

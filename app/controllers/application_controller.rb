@@ -1,7 +1,10 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  
+  skip_before_action :verify_authenticity_token, if: -> { controller_name == 'admin' }
+
   layout :layout_for_selection
+
+
 protected
 
   def layout_for_selection
@@ -14,8 +17,7 @@ protected
             else
             	'admin'
         end
-    elsif controller_name == 'home'
-        
+    elsif controller_name == 'home' 
         'page'
 
     	else
