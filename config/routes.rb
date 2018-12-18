@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-
+  resources :control_times
   resources :experiences
   resources :bank_images
   resources :categories
