@@ -41,28 +41,29 @@
     </div>
   <% end %>
 
-  <div class="col-md-5">
+  <div class="col-md-6">
     <%= form.label "Para el Empleado" %>
     <%= form.select :user_id, get_usuarios.map { |u| [u.email, u.id] },{ include_blank: false },{ class: 'form form-control'  }%>
     <br>
   </div>
 
-  <div class="col-md-12">
-    <%= form.label "Observaciones" %>
-    <%= form.text_area :observations, id: :control_time_observations,:rows => 7,  :cols =>25, class: "form form-control"%>
+  <div class="col-md-6">
+    <%= form.label "Fecha de Registro" %>
+    <%= form.text_field :registration_date, id: :control_time_registration_date, class: "form form-control", :value => (action_name == 'new' ? Time.now.strftime("%d/%m/%Y"): @control_time.registration_date.strftime("%d/%m/%Y")) %>
     <br>
   </div>
 
   <div class="col-md-12">
-    <%= form.label "Fecha de Registro" %>
-    <%= form.date_field :registration_date, id: :control_time_registration_date, class: "form form-control" %>
+    <%= form.label "Observaciones" %>
+    <%= form.text_area :observations, id: :control_time_observations,:rows => 4,  :cols =>25, class: "form form-control"%>
     <br>
   </div>
+
   <div class="padre">
     <%= form.fields_for :cost_of_hours_center do |file|  %>
     <div class="col-md-12 no-padding">
 
-      <div class="col-md-6">
+      <div class="col-md-6"> 
         <label>Horas</label>
           <div class="input-group">
               <span class="input-group-btn">
@@ -74,17 +75,12 @@
           </div>
           <br>
       </div>
+
       <div class="col-md-6">
           <label>En el Proyecto</label>
           <%= file.select :cost_center_id, get_costo_de_centro.map { |u| [u.name, u.id] },{ include_blank: false },{ class: 'form form-control'  }%>
           <br>
       </div>
-
-        <div class="col-md-4 no-padding" style="display: none;">
-          <%= form.label "Para el Empleado" %>
-          <%= form.select :user_id, get_usuarios.map { |u| [u.email, u.id] },{ include_blank: false },{ class: 'form form-control'  }%>
-          <br>
-        </div>
 
       </div>
     <% end %>
