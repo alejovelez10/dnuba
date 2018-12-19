@@ -5,7 +5,6 @@ class ControlTimesController < ApplicationController
   # GET /control_times.json
   def index
     @control_times = ControlTime.all
-    @resultado = CostOfHoursCenter.sum("hours + hours")
   end
 
   # GET /control_times/1
@@ -53,10 +52,12 @@ class ControlTimesController < ApplicationController
   def update
     respond_to do |format|
       if @control_time.update(control_time_params)
+        puts "guardddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddoooo"
         format.html { redirect_to control_times_path, notice: 'Control time was successfully updated.' }
         format.json { render :show, status: :ok, location: @control_time }
       else
         format.html { render :edit }
+        puts "nooooooooooooooooooooooooo guardoooooooooooooooooooooooooooooooooooooooo"
         format.json { render json: @control_time.errors, status: :unprocessable_entity }
       end
     end
