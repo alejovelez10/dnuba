@@ -1,7 +1,3 @@
-<p id="notice"><%= notice %></p>
-
-
-
 <div class="row title">
   <div class="col-md-8">
       <h2 >CENTROS DE COSTOS</h2>
@@ -20,9 +16,8 @@
       <th>Ingresos</th>
       <th>Gastos</th>
       <th>Diferencia</th>
-      <th>Total de horas Trabajadas</th>
-
-      <th colspan="3"></th>
+      <th class="alinear">Total de horas Trabajadas</th>
+      <th class="center">Acciones</th>
     </tr>
   </thead>
 
@@ -34,7 +29,7 @@
         <td><%= number_to_currency(cost_center.incomes.sum(:value)).chomp(".00") %></td>
         <td><%= number_to_currency(cost_center.general_spends.sum(:value)).chomp(".00") %></td>
         <td><%= number_to_currency(cost_center.incomes.sum(:value) - cost_center.general_spends.sum(:value)).chomp(".00") %></td>
-        <td><%= @total %></td>
+        <td class="text-center"><%= CostOfHoursCenter.where(cost_center_id: cost_center.id).sum("hours")%> Horas</td>
 
         <td><%= link_to cost_center, class: "btn btn-info" do %>
           <i class="far fa-eye"></i>
@@ -60,3 +55,16 @@
 <br>
 
 
+<style type="text/css" media="screen">
+
+  .center{
+    text-align: center;
+    width: 13%;
+  }
+
+  .alinear{
+    text-align: center;
+    width: 17%;
+  }
+
+</style>
