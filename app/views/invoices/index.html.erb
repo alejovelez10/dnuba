@@ -25,17 +25,23 @@
     <% @invoices.each do |invoice| %>
       <tr>
         <td><%= invoice.client %></td>
-        <td><%= invoice.invoice_value %></td>
-        <td><%= invoice.total_value %></td>
+        <td><%= number_to_currency(invoice.invoice_value, :precision => 0) %></td>
+        <td><%= number_to_currency(invoice.total_value, :precision => 0) %></td> 
         <td><%= invoice.elaborate %></td>
         <td><%= get_date(invoice.invoice_date) %></td>
-        <td><%= link_to 'Show', invoice %></td>
-        <td><%= link_to 'Edit', edit_invoice_path(invoice) %></td>
-        <td><%= link_to 'Destroy', invoice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
         <td>
+
+          <%= link_to 'Show', invoice %>
+
+          <%= link_to 'Edit', edit_invoice_path(invoice) %>
+
+          <%= link_to 'Destroy', invoice, method: :delete, data: { confirm: 'Are you sure?' } %>
+
           <%= link_to pdf_dnuba_path(invoice.id, :format => "pdf"), target: "_blank", class: "btn btn-primary" do %> 
             <i class="fas fa-file-pdf"></i>
           <% end -%>
+
         </td>
       </tr>
     <% end %>

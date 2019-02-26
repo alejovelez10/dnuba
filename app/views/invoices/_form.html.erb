@@ -20,23 +20,23 @@
         <div class="form-group col-md-12 no-padding">
 
           <div class="col-md-3 no-padding-left">
-            <%= form.label "Numero de Cuenta" %>
-            <%= form.text_field :account_number, id: :invoice_account_number, class: "form form-control", :placeholder => "Numero de Cuenta" %>
-          </div>
-
-          <div class="col-md-3 ">
             <%= form.label "Cliente" %>
             <%= form.text_field :client, id: :invoice_client, class: "form form-control", :placeholder => "Cliente" %>
           </div>
 
-          <div class="col-md-3 ">
-            <%= form.label "Direccion" %>
-            <%= form.text_field :address, id: :invoice_address, class: "form form-control", :placeholder => "Direccion" %>
+          <div class="col-md-3">
+            <%= form.label "Numero de Cuenta" %>
+            <%= form.text_field :account_number, id: :invoice_account_number, class: "form form-control", :placeholder => "Numero de Cuenta" %>
           </div>
 
           <div class="col-md-3 no-padding-right">
             <%= form.label "Ciudad" %>
             <%= form.text_field :city, id: :invoice_city, class: "form form-control", :placeholder => "Ciudad" %>
+          </div>
+
+          <div class="col-md-3 ">
+            <%= form.label "Direccion" %>
+            <%= form.text_field :address, id: :invoice_address, class: "form form-control", :placeholder => "Direccion" %>
             <br>
           </div>
 
@@ -51,8 +51,13 @@
           </div>
 
           <div class="col-md-3">
-            <%= form.label "Codigo del Cliente" %>
+            <%= form.label "Nit del Cliente" %>
             <%= form.text_field :nit, class: "form form-control", :placeholder => "Nit del Cliente" %>
+          </div>
+
+          <div class="col-md-3 no-padding-right">
+            <%= form.label "Condiciones de pago" %>
+            <%= form.text_field :payment_conditions, id: :invoice_payment_conditions, class: "form form-control", :placeholder => "Condiciones de pago" %>
           </div>
 
         </div>
@@ -63,53 +68,67 @@
 
         <div class="form-group col-md-12 no-padding">
 
-          <div class="col-md-3 no-padding-left">
-            <%= form.label "Condiciones de pago" %>
-            <%= form.text_field :payment_conditions, id: :invoice_payment_conditions, class: "form form-control", :placeholder => "Condiciones de pago" %>
+          <div class="col-md-4 no-padding-left">
+            <%= form.label "Fecha del Servicio" %>
+            <%= form.date_field :service_date, id: :invoice_service_date, class: "form form-control" %>
           </div>
 
-          <div class="col-md-3 ">
+          <div class="col-md-4">
             <%= form.label "Cantidad" %>
             <%= form.number_field :quantity, id: :invoice_quantity, class: "form form-control", :placeholder => "Cantidad" %>
           </div>
 
-
-          <div class="col-md-3 ">
-            <%= form.label "Valor Unitario" %>
-            <%= form.text_field :unit_value, id: :invoice_unit_value, class: "form form-control", :placeholder => "Valor Unitario" %>
-          </div>
-
-          <div class="col-md-3 no-padding-left">
-            <%= form.label "Valor Total" %>
-            <%= form.text_field :total_value, id: :invoice_total_value, class: "form form-control", :placeholder => "Valor Total" %>
-            <br>
-          </div>
-
-          <div class="col-md-3 no-padding-left">
-            <%= form.label "SubTotal" %>
-            <%= form.text_field :subtotal, id: :invoice_subtotal, class: "form form-control", :placeholder => "SubTotal" %>
-          </div>
-
-          <div class="col-md-3 ">
-            <%= form.label "Anticipo" %>
-            <%= form.text_field :advance, id: :invoice_advance, class: "form form-control", :placeholder => "Anticipo" %>
-          </div>
-
-          <div class="col-md-3">
-            <%= form.label "Valor del Servicio" %>
+          <div class="col-md-4 no-padding-right">
+            <%= form.label "Valor Servicio" %>
             <%= form.text_field :service_value, id: :invoice_service_value, class: "form form-control", :placeholder => "Valor del servicio" %>
-          </div>
-
-          <div class="col-md-3">
-            <%= form.label "Precio de la Factura" %>
-            <%= form.text_field :invoice_value, id: :invoice_invoice_value, class: "form form-control", :placeholder => "Precio de la Factura" %>
             <br>
           </div>
 
-          <div class="col-md-3 no-padding-left">
-            <%= form.label "Elaborado Por" %>
-            <%= form.text_field :elaborate, id: :invoice_elaborate, class: "form form-control" %>
+          <div class="col-md-12 no-padding">
+            <%= form.label "Descripcion" %>
+            <%= form.text_area :description, id: :invoice_description, class: "form form-control", :rows => 10, :placeholder => "Descripcion" %>
+            <br>
           </div>
+
+          <div class="col-md-4 no-padding-left">
+            <%= form.label "Valor Unitario del Servicio" %>
+            <%= form.text_field :unit_value, id: :invoice_unit_value, class: "form form-control", :placeholder => "Valor Unitario" %>
+            <br>
+          </div>
+
+          <div class="col-md-4 no-padding-left">
+            <%= form.label "Valor Total del Servicio" %>
+            <%= form.text_field :total_value, id: :invoice_total_value, class: "form form-control", :placeholder => "Valor Total" %>
+          </div>
+
+        </div>
+
+        <div class="col-md-12 no-padding">
+          <hr>
+        </div>
+
+        <div class="form-group col-md-12 no-padding">
+
+            <div class="col-md-3 no-padding-left">
+              <%= form.label "Anticipo" %>
+              <%= form.text_field :advance, id: :invoice_advance, class: "form form-control", :placeholder => "Anticipo" %>
+            </div>
+
+            <div class="col-md-3">
+              <%= form.label "SubTotal" %>
+              <%= form.text_field :subtotal, id: :invoice_subtotal, class: "form form-control", :placeholder => "SubTotal" %>
+            </div>
+
+            <div class="col-md-3">
+              <%= form.label "Precio de la Factura" %>
+              <%= form.text_field :invoice_value, id: :invoice_invoice_value, class: "form form-control", :placeholder => "Precio de la Factura" %>
+              <br>
+            </div>
+
+            <div class="col-md-3 no-padding-right">
+              <%= form.label "Elaborado Por" %>
+              <%= form.text_field :elaborate, id: :invoice_elaborate, class: "form form-control", :placeholder => "Elaborado Por" %>
+            </div>
 
         </div>
 
@@ -125,11 +144,6 @@
           </div>
 
           <div class="col-md-4">
-            <%= form.label "Fecha del Servicio" %>
-            <%= form.date_field :service_date, id: :invoice_service_date, class: "form form-control" %>
-          </div>
-
-          <div class="col-md-4">
             <%= form.label "Fecha de Entrega" %>
             <%= form.date_field :date_of_delivery, id: :invoice_date_of_delivery, class: "form form-control" %>
           </div>
@@ -140,12 +154,9 @@
           <hr>
         </div>
 
-        <div class="col-md-6 no-padding-left">
-          <%= form.label "Descripcion" %>
-          <%= form.text_area :description, id: :invoice_description, class: "form form-control", :rows => 10, :placeholder => "Descripcion" %>
-        </div>
 
-        <div class="col-md-6 no-padding-right">
+
+        <div class="col-md-12 no-padding">
           <%= form.label "Observaciones" %>
           <%= form.text_area :observations, id: :invoice_observations, class: "form form-control", :rows => 10, :placeholder => "Observaciones" %>
           <br>

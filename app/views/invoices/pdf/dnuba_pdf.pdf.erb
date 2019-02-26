@@ -82,7 +82,7 @@
 
 	<tbody>
 		<tr>
-			<td class="padding">2</td>
+			<td class="padding"><%= @invoice.payment_conditions%></td>
 		</tr>
 	</tbody>
 
@@ -133,7 +133,7 @@
 		</tr>
 	</thead>
 
-	<tbody class="text" style="border-color: #8080805c !important;">
+	<tbody class="text date-list">
 		<tr>
 			<td>
 				<%= @invoice.invoice_date.mday %>/<%= date_s(@invoice.invoice_date)%>/<%= @invoice.invoice_date.year %>
@@ -144,6 +144,30 @@
 			<td><%= number_to_currency(@invoice.unit_value, :precision => 0) %></td>
 			<td><%= number_to_currency(@invoice.total_value, :precision => 0) %></td>
 		</tr>
+	</tbody>
+
+</table>
+
+<table class="mini-table7">
+	<tbody>
+		<tr>
+			<td class="padding"><b>SUBTOTAL</b>
+		<p style="float: right;"><%= number_to_currency(@invoice.subtotal, :precision => 0) %></p>
+			</td>
+		</tr>
+
+		<tr>
+			<td class="padding"><b>ANTICIPO</b>
+		<p style="float: right;"><%= number_to_currency(@invoice.unit_value, :precision => 0) %></p>
+			</td>
+		</tr>
+
+		<tr>
+			<td class="padding"><b>VALOR TOTAL</b>
+		<p style="float: right;"><%= number_to_currency(@invoice.total_value, :precision => 0) %></p>
+			</td>
+		</tr>
+
 	</tbody>
 
 </table>
@@ -191,11 +215,25 @@
 
 
 <style type="text/css" media="screen">
+	.date-list tr td{
+		padding-bottom: 450px;
+	}
+	.mini-table7{
+		border: 1px solid gray;
+		border-radius: 2px;
+		border-top: initial;
+		border-spacing: initial;
+		width: 295px;
+		float: right;
+		text-align: left !important;
+		border: 1px solid #80808045;	
+	}
 
 	.imput-text{
-		width: 70%;
+		width: 60%;
 		margin-bottom: 40px;
-		margin-top: 40px;
+		margin-top: 80px;
+		float: left;
 	}
 
 	.padding{
@@ -262,6 +300,7 @@
 		border: 1px solid gray;
 	}
 
+
 	.mini-table4{
 		border: 1px solid gray;
 		border-radius: 6px;
@@ -285,7 +324,6 @@
 	.table-show{
 		width: 100%;
 		border-radius: 5px;
-		margin-bottom: 500px;
     	border-color: #80808054 !important;
 		border-spacing: initial;
 	}
