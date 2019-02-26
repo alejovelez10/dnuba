@@ -50,6 +50,11 @@
             <%= form.text_field :client_code, id: :invoice_client_code, class: "form form-control", :placeholder => "Codigo del Cliente" %>
           </div>
 
+          <div class="col-md-3">
+            <%= form.label "Codigo del Cliente" %>
+            <%= form.text_field :nit, class: "form form-control", :placeholder => "Nit del Cliente" %>
+          </div>
+
         </div>
 
         <div class="col-md-12 no-padding">
@@ -103,7 +108,7 @@
 
           <div class="col-md-3 no-padding-left">
             <%= form.label "Elaborado Por" %>
-            <%= form.text_field :elaborate, id: :invoice_elaborate, class: "form form-control", :value => current_user.email  %>
+            <%= form.text_field :elaborate, id: :invoice_elaborate, class: "form form-control" %>
           </div>
 
         </div>
