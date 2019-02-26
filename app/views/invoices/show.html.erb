@@ -1,0 +1,104 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Account number:</strong>
+  <%= @invoice.account_number %>
+</p>
+
+<p>
+  <strong>Client:</strong>
+  <%= @invoice.client %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @invoice.address %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @invoice.city %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @invoice.phone %>
+</p>
+
+<p>
+  <strong>Payment conditions:</strong>
+  <%= @invoice.payment_conditions %>
+</p>
+
+<p>
+  <strong>Date of delivery:</strong>
+  <%= @invoice.date_of_delivery %>
+</p>
+
+<p>
+  <strong>Client code:</strong>
+  <%= @invoice.client_code %>
+</p>
+
+<p>
+  <strong>Invoice date:</strong>
+  <%= @invoice.invoice_date %>
+</p>
+
+<p>
+  <strong>Service date:</strong>
+  <%= @invoice.service_date %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @invoice.quantity %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @invoice.description %>
+</p>
+
+<p>
+  <strong>Unit value:</strong>
+  <%= @invoice.unit_value %>
+</p>
+
+<p>
+  <strong>Total value:</strong>
+  <%= @invoice.total_value %>
+</p>
+
+<p>
+  <strong>Subtotal:</strong>
+  <%= @invoice.subtotal %>
+</p>
+
+<p>
+  <strong>Advance:</strong>
+  <%= @invoice.advance %>
+</p>
+
+<p>
+  <strong>Elaborate:</strong>
+  <%= @invoice.elaborate %>
+</p>
+
+<p>
+  <strong>Observations:</strong>
+  <%= @invoice.observations %>
+</p>
+
+<p>
+  <strong>Service value:</strong>
+  <%= @invoice.service_value %>
+</p>
+
+<p>
+  <strong>Invoice value:</strong>
+  <%= @invoice.invoice_value %>
+</p>
+
+<%= link_to 'Edit', edit_invoice_path(@invoice) %> |
+<%= link_to 'Back', invoices_path %>

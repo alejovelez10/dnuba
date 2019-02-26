@@ -1,0 +1,334 @@
+<table class="header-table">
+	<thead>
+		<tr>
+			<th style="width: 40%;">
+				<img style = "width: 300px;" src="http://dnuba.s3.amazonaws.com/uploads/bank_image/achivo/64/snubamejoraapp.png" />	
+			</th>
+
+			<th class="text">
+				<b>Yuli Andrea Ocampo Clavijo</b><br>
+
+				<b>Cc 391178562</b><br>
+
+				<b>Telefono: </b><p>5918099 - 3192407438</p> <br>
+				<p>Transversal 39 #76 - 35</p> <br>
+				<p>Medellin, Colombia</p> <br>
+
+				<b>Correo: </b><p>info@dnuba.com</p>
+			</th>
+			<th class="th-border">CUENTA DE COBRO <br><br>
+				<b>asdasdasdasdd</b>
+			</th>	
+		</tr>
+	</thead>
+</table>
+
+
+<table class="services" border="1px">
+
+	<thead>
+		<tr>
+			<th class="padding" colspan="2" style="border-top: none; border-left: none; border-right: none; ">Señores(es):
+				<p><%= @invoice.client %></p>
+			</th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<tr>
+			<td class="padding" style="border-left: none; border-top: none; "><b>Direccion: </b>
+				<p> <%= @invoice.address %></p>
+			</td>
+			<td class="padding" style="border-left: none; border-right: none; border-top: none;"><b>Ciudad: </b>
+				<p> <%= @invoice.city %></p>
+			</td>
+		</tr>
+
+		<tr>
+			<td class="padding" style="border-left: none; border-bottom: none; border-top: none;"><b>Telefono: </b>
+				<p> <%= @invoice.phone %></p>
+			</td>
+			<td class="padding" style="border-left: none; border-bottom: none; border-right: none; border-top: none;"><b>Nit. </b> 
+				<p> <%= @invoice.client_code %></p>
+			</td>
+		</tr>
+	</tbody>
+
+</table>
+
+<table class="mini-table1" style="float: right;">
+
+	<thead class="color-head">
+		<tr>
+			<th>Fecha de Factura</th>
+		</tr>
+	</thead>
+
+	<tbody class="text">
+		<tr>
+			<td class="padding"><%= @invoice.invoice_date.mday %>/<%= date_s(@invoice.invoice_date)%>/<%= @invoice.invoice_date.year %></td>
+		</tr>
+	</tbody>
+
+</table>
+
+<table class="mini-table2" style="float: right;">
+
+	<thead class="color-head">
+		<tr>
+			<th>Condiciones de pago</th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<tr>
+			<td class="padding">2</td>
+		</tr>
+	</tbody>
+
+</table>
+
+
+<table class="mini-table3" style="float: right;">
+
+	<thead class="color-head">
+		<tr>
+			<th>Fecha de Entrega</th>
+		</tr>
+	</thead>
+
+	<tbody class="text">
+		<tr>
+			<td class="padding"><%= @invoice.date_of_delivery.mday %>/<%= date_s(@invoice.date_of_delivery) %>/<%= @invoice.date_of_delivery.year %></td>
+		</tr>
+	</tbody>
+
+</table>
+
+<table class="mini-table4" style="float: right;">
+
+	<thead class="color-head">
+		<tr>
+			<th>Codigo cliente</th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<tr>
+			<td class="padding"><%= @invoice.client_code %></td>
+		</tr>
+	</tbody>
+
+</table>
+
+
+<table class="table-show" border="1">
+	<thead>
+		<tr>
+			<th>FECHA</th>
+			<th>CANT</th>
+			<th>DESCRIPCION</th>
+			<th>VR UNIT</th>
+			<th>VR TOTAL</th>
+		</tr>
+	</thead>
+
+	<tbody class="text" style="border-color: #8080805c !important;">
+		<tr>
+			<td>
+				<%= @invoice.invoice_date.mday %>/<%= date_s(@invoice.invoice_date)%>/<%= @invoice.invoice_date.year %>
+			</td>
+
+			<td><%= @invoice.quantity %></td>
+			<td><%= @invoice.description %></td>
+			<td><%= number_to_currency(@invoice.unit_value, :precision => 0) %></td>
+			<td><%= number_to_currency(@invoice.total_value, :precision => 0) %></td>
+		</tr>
+	</tbody>
+
+</table>
+
+<table class="imput-text">
+	<tbody>
+		<tr>
+
+			<td class="text">
+				<input type="text" name="" value="" id="imput-firm" style="width: 80%;" ><br>
+				<b>Firma Y Sello Comprador</b>
+			</td>
+
+			<td class="text">
+				<input type="text" name="" id="imput-firm" value="<%= @invoice.elaborate %>" style="width: 90%; text-align: center;" ><br>
+				<b>Elaborado Por</b>
+			</td>
+
+		</tr>
+	</tbody>
+</table>
+
+<table class="table-des">
+	<tbody>
+		<tr>
+			<td><b>Observaciones: </b>
+				<p><%= @invoice.observations %></p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<div class="text">
+
+	<b>Favor no practicar retencion en la fuente por no acceder el tope minimo de la tabla de retencion de Art 383
+	del Estatuto Tributario y por no haber vinculado o contratado por al menos 90 dias continuos o discontinuos 2 
+	o mas trabajadores asociados a la actividad  </b>
+	<br><br>
+
+	<b>Cuenta de ahorros Bancolombia #10362915947</b><p class="name-text">Yuli Andrea Ocampo Clavijo</p> <br><br>
+
+	<b>www.dnuba.com</b>
+
+</div>
+
+
+<style type="text/css" media="screen">
+
+	.imput-text{
+		width: 70%;
+		margin-bottom: 40px;
+		margin-top: 40px;
+	}
+
+	.padding{
+		padding: 10px;
+	}
+
+	.name-text{
+		display: inline-block; 
+		width: 30%;
+	}
+
+	.color-head{
+		background: #09a6e1;
+		color: #fff;
+		border-radius: 4px;
+	}
+
+	p{
+		font-weight: normal;
+		margin-top: 0px !important;
+		margin-bottom: 0px !important;
+		display: inline;
+	}
+
+	.services{
+		border: 1px solid gray;
+		border-radius: 6px;
+		text-align: left;
+		width: 460px;
+		padding: 10px 10px;
+		margin-bottom: 30px;
+		margin-top: 30px;
+		border-spacing: initial; 
+		float: left !important;
+	}
+
+	.mini-table1{
+		border: 1px solid gray;
+		border-radius: 6px;
+		border-spacing: initial;
+		margin-top: 30px;
+		width: 20%;
+		border: 1px solid gray;
+	}
+
+	.mini-table2{
+		border: 1px solid gray;
+		border-radius: 6px;
+		border-spacing: initial;
+		margin-top: 30px;
+		text-align: center;
+		margin-bottom: 2px !important;
+		width: 25%;
+		border: 1px solid gray;
+		margin-right: 10px;
+	}
+
+	.mini-table3{
+		border: 1px solid gray;
+		border-radius: 6px;
+		border-spacing: initial;
+		margin-top: 15px;
+		width: 20%;
+		border: 1px solid gray;
+	}
+
+	.mini-table4{
+		border: 1px solid gray;
+		border-radius: 6px;
+		border-spacing: initial;
+		margin-top: 15px;
+		width: 25%;
+		text-align: center;
+		margin-right: 10px;
+		border: 1px solid #80808045;			
+	}
+
+	.th-border{
+		border: 1px solid gray;
+		border-radius: 4px;
+	}
+
+	.imput-text td{
+		width: 50%;
+	}
+
+	.table-show{
+		width: 100%;
+		border-radius: 5px;
+		margin-bottom: 500px;
+    	border-color: #80808054 !important;
+		border-spacing: initial;
+	}
+
+	.table-show thead{
+		background: #09a6e1;
+		color: #fff;
+	}
+
+	.text{
+		text-align: center;
+	}
+
+	.table-des{
+		border: 1px solid gray;
+		width: 100%;
+		padding: 10px 10px;
+		border-radius: 6px;
+		margin-bottom: 30px;
+		margin-top: 30px;
+	}
+
+	input{
+		border-top: none;
+		border-right: none;
+		border-left: none;
+	}
+
+	.text-input2{
+		background: ;
+	}
+
+	.text-input{
+		background: ;
+	}
+
+	#imput-firm{
+		width: 30%;
+	}	
+
+	.header-table{
+		width: 100%;
+		margin-bottom: 20px;
+	}
+
+</style>

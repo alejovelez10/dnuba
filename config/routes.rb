@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :invoices
   resources :control_times
   resources :experiences
   resources :bank_images
@@ -23,6 +24,8 @@ Rails.application.routes.draw do
 
 
   end
+
+  get "pdf_dnuba/:id", to: "invoices#dnuba_pdf", as: "pdf_dnuba"
   
   root 'home#inicio'
 

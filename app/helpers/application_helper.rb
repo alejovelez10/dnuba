@@ -15,6 +15,11 @@ module ApplicationHelper
 		CostCenter.all
 	end
 
+	def date_s(date)
+		m = date.strftime("%m")
+		return m
+	end
+
 
 def get_date(fecha)
    
