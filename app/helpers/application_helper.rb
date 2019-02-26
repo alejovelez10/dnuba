@@ -38,31 +38,34 @@ end
 
 	def admin_menu
 
- 	@admin = ["", "", "", "", "", "", "", ""]
+ 	@admin = ["", "", "", "", "", "", "", "", ""]
 
  	if controller_name == "cost_centers"
- 		@admin = ["active", "", "", "", "", "", "", ""]
+ 			@admin = ["active", "", "", "", "", "", "", "", ""]
 
 	 	elsif controller_name == "type_spends"
-	 		@admin = ["", "active", "", "", "", "", "", ""]
+	 		@admin = ["", "active", "", "", "", "", "", "", ""]
 
 	 	elsif controller_name == "general_spends"
-	 		@admin = ["", "", "active", "", "", "", "", ""]
+	 		@admin = ["", "", "active", "", "", "", "", "", ""]
 
 	 	elsif controller_name == "incomes"
-	 		@admin = ["", "", "", "active", "", "", "", ""]
+	 		@admin = ["", "", "", "active", "", "", "", "", ""]
 
 	 	elsif controller_name == "contacts"
-	 		@admin = ["", "", "", "", "active", "", "", ""]
+	 		@admin = ["", "", "", "", "active", "", "", "", ""]
 
 	 	elsif controller_name == "admin"
-	 		@admin = ["", "", "", "", "", "active", "", ""]
+	 		@admin = ["", "", "", "", "", "active", "", "", ""]
 
 	 	elsif controller_name == "posts" || controller_name == "categories" || controller_name == "bank_images"
-	 		@admin = ["", "", "", "", "", "", "active", ""]
+	 		@admin = ["", "", "", "", "", "", "active", "", ""]
 
 	 	elsif controller_name == "control_times"
-	 		@admin = ["", "", "", "", "", "", "", "active"]
+	 		@admin = ["", "", "", "", "", "", "", "active", ""]
+
+	 	elsif controller_name == "invoices"
+	 		@admin = ["", "", "", "", "", "", "", "", "active"]
 
  	end
 

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  resources :invoices
+  resources :invoices, :except => [:show]
   resources :control_times
   resources :experiences
   resources :bank_images

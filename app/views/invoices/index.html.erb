@@ -32,11 +32,19 @@
 
         <td>
 
-          <%= link_to 'Show', invoice %>
+          <%= link_to edit_invoice_path(invoice), class: "btn btn-info" do %>
+            <i class="fas fa-edit"></i>
+          <% end -%>
 
-          <%= link_to 'Edit', edit_invoice_path(invoice) %>
-
-          <%= link_to 'Destroy', invoice, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to invoice, method: :delete, data: {
+                confirm: '¿Estas Seguro?',
+                'confirm-button-text': 'Borrar',
+                'cancel-button-text': 'Cancelar',
+                'confirm-button-color': '#CC0000',
+                 text: 'Recuerda que el registro se borrara permanentemente',
+                'image-url': ''}, class: "btn btn-danger" do %>
+           <i class="fas fa-trash-alt "></i>
+          <% end -%>
 
           <%= link_to pdf_dnuba_path(invoice.id, :format => "pdf"), target: "_blank", class: "btn btn-primary" do %> 
             <i class="fas fa-file-pdf"></i>
