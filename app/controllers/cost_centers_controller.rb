@@ -6,7 +6,6 @@ class CostCentersController < ApplicationController
   # GET /cost_centers.json
   def index
     @cost_center = CostCenter.all
-    @total = CostOfHoursCenter.where(hours: @cost_center.ids).count
   end
 
   def not_found
@@ -81,6 +80,6 @@ class CostCentersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cost_center_params
-      params.require(:cost_center).permit(:name, :code, :customer_id, :budget, :user_id)
+      params.require(:cost_center).permit(:name, :code, :customer_id, :budget, :user_id, :control_time_id)
     end
 end

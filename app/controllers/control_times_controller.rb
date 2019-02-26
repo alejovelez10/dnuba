@@ -1,10 +1,11 @@
 class ControlTimesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_control_time, only: [:show, :edit, :update, :destroy]
 
   # GET /control_times
   # GET /control_times.json
   def index
-    @control_times = ControlTime.all
+    @control_times = ControlTime.all.paginate(:page => params[:page], :per_page => 15)
   end
 
   # GET /control_times/1
@@ -52,12 +53,10 @@ class ControlTimesController < ApplicationController
   def update
     respond_to do |format|
       if @control_time.update(control_time_params)
-        puts "guardddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddoooo"
         format.html { redirect_to control_times_path, notice: 'Control time was successfully updated.' }
         format.json { render :show, status: :ok, location: @control_time }
       else
         format.html { render :edit }
-        puts "nooooooooooooooooooooooooo guardoooooooooooooooooooooooooooooooooooooooo"
         format.json { render json: @control_time.errors, status: :unprocessable_entity }
       end
     end
