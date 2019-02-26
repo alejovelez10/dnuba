@@ -27,7 +27,6 @@
         <td><%= CostOfHoursCenter.where(control_time_id: control_time.id).sum("hours") %></td>
         <td><%= control_time.observations %></td>
         <td><%= get_date(control_time.registration_date) %></td>
-
         <td>
           <%= link_to edit_control_time_path(control_time), remote: true, class: "btn btn-info" do %>
           <i class="fas fa-pencil-alt"></i>
@@ -50,6 +49,10 @@
   </tbody>
 </table>
 
+ <div class="col-md-12 paginate text-center title-table1">
+        <%= will_paginate @control_times, renderer: BootstrapPagination::Rails, previous_label: "Anterior", next_label: "Siguiente", inner_window: 1, outer_window: 0 %>
+  </div>
+
 <style type="text/css" media="screen">
   .left{
     float: right;
@@ -67,3 +70,9 @@
   }
 
 </style>
+
+<script>
+$(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip();   
+});
+</script>

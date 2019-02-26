@@ -49,7 +49,7 @@
 
   <div class="col-md-6">
     <%= form.label "Fecha de Registro" %>
-    <%= form.text_field :registration_date, id: :control_time_registration_date, class: "form form-control", :value => (action_name == 'new' ? Time.now.strftime("%d/%m/%Y"): @control_time.registration_date.strftime("%d/%m/%Y")) %>
+    <%= form.date_field :registration_date, id: :control_time_registration_date, class: "form form-control" %>
     <br>
   </div>
 
@@ -63,7 +63,7 @@
     <%= form.fields_for :cost_of_hours_center do |file|  %>
     <div class="col-md-12 no-padding">
 
-      <div class="col-md-6"> 
+      <div class="col-md-6 no-padding-left"> 
         <label>Horas</label>
           <div class="input-group">
               <span class="input-group-btn">
@@ -76,7 +76,7 @@
           <br>
       </div>
 
-      <div class="col-md-6">
+      <div class="col-md-6 no-padding-right">
           <label>En el Proyecto</label>
           <%= file.select :cost_center_id, get_costo_de_centro.map { |u| [u.name, u.id] },{ include_blank: false },{ class: 'form form-control'  }%>
           <br>

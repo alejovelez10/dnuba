@@ -17,5 +17,5 @@ class CostCenter < ApplicationRecord
 	belongs_to :user
 	has_many :general_spends
 	has_many :incomes
-	has_many :control_time
+	has_many :control_times
 end
